@@ -27,7 +27,7 @@ import org.jetbrains.anko.design.navigationView
 import org.jetbrains.anko.design.themedAppBarLayout
 import org.jetbrains.anko.support.v4.drawerLayout
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AnkoLogger {
     private val mainView = MainView()
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         val ft = supportFragmentManager.beginTransaction()
-        error("Starting fragment ${fragment.javaClass.simpleName}")
+        debug("Starting fragment ${fragment.javaClass.simpleName}")
         ft.replace(R.id.nav_main_view, fragment)
         ft.commit()
 

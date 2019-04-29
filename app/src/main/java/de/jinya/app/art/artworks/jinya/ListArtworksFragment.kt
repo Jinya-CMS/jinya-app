@@ -10,37 +10,28 @@ import androidx.fragment.app.Fragment
 import com.github.kittinunf.fuel.core.isSuccessful
 import com.github.kittinunf.fuel.httpGet
 import de.jinya.app.model.Artwork
-import iterator
+import de.jinya.app.model.JinyaList
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.Json
 import org.jetbrains.anko.linearLayout
 import org.jetbrains.anko.listView
 import org.jetbrains.anko.matchParent
 import org.jetbrains.anko.support.v4.UI
+import org.jetbrains.anko.support.v4.longToast
 import org.jetbrains.anko.wrapContent
-import org.json.JSONObject
 
 class ListArtworksFragment : Fragment() {
     private val artworkAdapter = ListArtworkAdapter()
 
+    @UnstableDefault
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        "/api/artwork".httpGet().responseString { request, response, result ->
+        "/api/artwork".httpGet().responseString { _, response, result ->
             if (response.isSuccessful) {
-                val data = JSONObject(result.get())
-                val jsonArtworks = data.getJSONArray("items").iterator<JSONObject>()
-                val artworks = ArrayList<Artwork>()
-
-                for (artwork: JSONObject in jsonArtworks) {
-                    artworks.add(
-                        Artwork(
-                            artwork.getString("name"),
-                            if (!artwork.isNull("description")) artwork.getString("description") else null,
-                            artwork.getString("slug"),
-                            artwork.getString("picture")
-                        )
-                    )
-                }
-
-                artworkAdapter.setArtworks(artworks)
+                val artworks = Json.parse(JinyaList.serializer(Artwork.serializer()), result.get())
+                artworkAdapter.setArtworks(artworks.items)
+            } else {
+                longToast(result.get())
             }
         }
     }

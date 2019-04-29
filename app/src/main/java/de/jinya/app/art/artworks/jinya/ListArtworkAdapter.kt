@@ -16,8 +16,8 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 import java.io.File
 
-class ListArtworkAdapter() : BaseAdapter() {
-    var items: List<Artwork> = ArrayList()
+class ListArtworkAdapter : BaseAdapter() {
+    private var items: List<Artwork> = ArrayList()
 
     fun setArtworks(items: List<Artwork>) {
         this.items = items
@@ -58,7 +58,7 @@ class ListArtworkAdapter() : BaseAdapter() {
     }
 
     override fun getItemId(position: Int): Long {
-        return items[position].hashCode().toLong()
+        return items[position].slug.hashCode().toLong()
     }
 
     override fun getCount(): Int {
@@ -69,14 +69,15 @@ class ListArtworkAdapter() : BaseAdapter() {
         AsyncTask<String, Void, Bitmap>() {
 
         override fun doInBackground(vararg urls: String): Bitmap? {
-            val urldisplay = urls[0]
-            val filename = Uri.parse(urldisplay)?.path
+            val urlDisplay = urls[0]
+            val filename = Uri.parse(urlDisplay)?.path
             val file = File(context.cacheDir, filename)
             try {
                 if (!file.exists()) {
                     File(file.parent).mkdirs()
-                    val `in` = java.net.URL(urldisplay).openStream()
+                    val `in` = java.net.URL(urlDisplay).openStream()
                     file.createNewFile()
+
                     val fileOutStream = file.outputStream()
                     `in`.copyTo(fileOutStream)
                     fileOutStream.close()

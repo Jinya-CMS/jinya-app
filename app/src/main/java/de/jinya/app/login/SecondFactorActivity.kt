@@ -3,20 +3,24 @@ package de.jinya.app.login
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.isSuccessful
 import com.github.kittinunf.fuel.httpPost
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import de.jinya.app.MainActivity
 import de.jinya.app.R
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JSON
+import de.jinya.app.model.LoginData
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.Json
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.textInputEditText
 import org.jetbrains.anko.design.textInputLayout
 import org.jetbrains.anko.design.themedAppBarLayout
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.textChangedListener
 
 class SecondFactorActivity : AppCompatActivity() {
 
@@ -28,17 +32,19 @@ class SecondFactorActivity : AppCompatActivity() {
     override fun onBackPressed() {
     }
 
-    fun tryLogin(twoFactorCode: CharSequence?) {
+    @UnstableDefault
+    fun tryLogin(twoFactorCode: String) {
         login(intent.extras!!["username"]!!.toString(), intent.extras!!["password"]!!.toString(), twoFactorCode)
     }
 
-    private fun login(username: CharSequence?, password: CharSequence?, twoFactorCode: CharSequence?) {
+    @UnstableDefault
+    private fun login(username: String, password: String, twoFactorCode: String) {
         val preferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-        val loginData = LoginData(username, password, twoFactorCode)
+        val loginData = LoginData(username, password, twoFactorCode = twoFactorCode)
 
         "/api/login"
             .httpPost()
-            .body(JSON.stringify(loginData))
+            .body(Json.stringify(LoginData.serializer(), loginData))
             .responseJson { _, response, result ->
                 if (response.isSuccessful) {
                     val data = result.get().obj()
@@ -54,14 +60,14 @@ class SecondFactorActivity : AppCompatActivity() {
                 }
             }
     }
-
-    @Serializable
-    data class LoginData(val username: CharSequence?, val password: CharSequence?, val twoFactorCode: CharSequence?)
 }
 
 class SecondFactorView : AnkoComponent<SecondFactorActivity> {
+    private lateinit var secondFactorCodeLayout: TextInputLayout
     private lateinit var secondFactorCodeInput: TextInputEditText
+    private lateinit var loginButton: Button
 
+    @UnstableDefault
     override fun createView(ui: AnkoContext<SecondFactorActivity>) = with(ui) {
         verticalLayout {
             lparams(width = matchParent, height = matchParent)
@@ -75,16 +81,30 @@ class SecondFactorView : AnkoComponent<SecondFactorActivity> {
             verticalLayout {
                 padding = dip(16)
 
-                textInputLayout {
+                secondFactorCodeLayout = textInputLayout {
+                    isErrorEnabled = true
                     secondFactorCodeInput = textInputEditText {
-                        hintResource = R.string.prompt_password
+                        hintResource = R.string.second_factor_second_factor_code_label
                         inputType = InputType.TYPE_CLASS_NUMBER
+                        textChangedListener {
+                            afterTextChanged {
+                                if (secondFactorCodeInput.text?.length != 6) {
+                                    secondFactorCodeLayout.error =
+                                        owner.getString(R.string.second_factor_second_factor_code_error_invalid)
+                                    loginButton.isEnabled = false
+                                } else {
+                                    secondFactorCodeLayout.error = null
+                                    loginButton.isEnabled = true
+                                }
+                            }
+                        }
                     }
                 }.lparams(width = matchParent, height = wrapContent)
 
-                button(R.string.action_sign_in) {
+                loginButton = button(R.string.action_sign_in) {
+                    isEnabled = false
                     onClick {
-                        owner.tryLogin(secondFactorCodeInput.text)
+                        owner.tryLogin(secondFactorCodeInput.text.toString())
                     }
                 }
             }

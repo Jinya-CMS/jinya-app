@@ -1,9 +1,9 @@
 <resources>
-    <string name="preference_file_key">de.jinya.jinyagalleryapp.settings</string>
-    <string name="api_token">/jinya/api/token</string>
-    <string name="api_base_url">/jinya/api/url/base</string>
-    <string name="api_device_code">/jinya/api/device/code</string>
-    <string name="api_user_roles">/jinya/user/roles</string>
+    <string name="preference_file_key" translatable="false">de.jinya.jinyagalleryapp.settings</string>
+    <string name="api_token" translatable="false">/jinya/api/token</string>
+    <string name="api_base_url" translatable="false">/jinya/api/url/base</string>
+    <string name="api_device_code" translatable="false">/jinya/api/device/code</string>
+    <string name="api_user_roles" translatable="false">/jinya/user/roles</string>
 
     <string name="app_name">Jinya Gallery App</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -15,15 +15,15 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="login_email_label">Email</string>
+    <string name="login_password_label">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="prompt_jinya_url">Jinya Url</string>
+    <string name="login_jinya_url_label">Jinya Url</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="title_activity_second_factor">Two factor code</string>
     <string name="nav_art">Art</string>
@@ -41,4 +41,9 @@
     <string name="nav_my_account_two_factor">Two factor auth</string>
     <string name="action_artwork_edit">Edit</string>
     <string name="action_artwork_delete">Delete</string>
+    <string name="login_jinya_url_error_invalid">Please input a valid URL</string>
+    <string name="login_email_error_invalid">Please input a valid email address</string>
+    <string name="login_password_error_invalid">Please input a password</string>
+    <string name="second_factor_second_factor_code_error_invalid">The code must be 6 characters long</string>
+    <string name="second_factor_second_factor_code_label">2FA Code</string>
 </resources>
