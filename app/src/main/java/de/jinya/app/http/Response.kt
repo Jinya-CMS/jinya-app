@@ -4,11 +4,11 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class JinyaError(
-    val message: CharSequence,
-    val type: CharSequence,
-    val exception: CharSequence? = null,
-    val file: CharSequence? = null,
-    val stack: CharSequence? = null,
+    val message: String,
+    val type: String,
+    val exception: String? = null,
+    val file: String? = null,
+    val stack: String? = null,
     val line: Int? = null
 )
 

@@ -1,5 +1,6 @@
 package de.jinya.app.login
 
+import JsonEncoder
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
@@ -15,7 +16,6 @@ import de.jinya.app.R
 import de.jinya.app.model.LoginData
 import de.jinya.app.model.TwoFactorData
 import kotlinx.serialization.UnstableDefault
-import kotlinx.serialization.json.Json
 import org.apache.commons.validator.routines.EmailValidator
 import org.apache.commons.validator.routines.UrlValidator
 import org.jetbrains.anko.*
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
 
         "/api/login"
             .httpPost()
-            .body(Json.stringify(LoginData.serializer(), loginData))
+            .body(JsonEncoder.stringify(LoginData.serializer(), loginData))
             .responseString { _, response, _ ->
                 if (response.isSuccessful) {
                     startActivity<MainActivity>()
@@ -80,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
         "/api/2fa"
             .httpPost()
-            .body(Json.stringify(TwoFactorData.serializer(), twoFactorData))
+            .body(JsonEncoder.stringify(TwoFactorData.serializer(), twoFactorData))
             .responseString { _, response, _ ->
                 if (response.isSuccessful) {
                     startActivity<SecondFactorActivity>("username" to username, "password" to password)

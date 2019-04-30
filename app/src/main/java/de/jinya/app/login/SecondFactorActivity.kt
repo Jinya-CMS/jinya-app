@@ -1,5 +1,6 @@
 package de.jinya.app.login
 
+import JsonEncoder
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
@@ -14,7 +15,6 @@ import de.jinya.app.MainActivity
 import de.jinya.app.R
 import de.jinya.app.model.LoginData
 import kotlinx.serialization.UnstableDefault
-import kotlinx.serialization.json.Json
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.textInputEditText
 import org.jetbrains.anko.design.textInputLayout
@@ -44,7 +44,7 @@ class SecondFactorActivity : AppCompatActivity() {
 
         "/api/login"
             .httpPost()
-            .body(Json.stringify(LoginData.serializer(), loginData))
+            .body(JsonEncoder.stringify(LoginData.serializer(), loginData))
             .responseJson { _, response, result ->
                 if (response.isSuccessful) {
                     val data = result.get().obj()
