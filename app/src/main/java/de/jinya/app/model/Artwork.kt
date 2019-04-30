@@ -4,10 +4,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Artwork(
-    val name: CharSequence?,
-    val slug: CharSequence?,
-    val picture: CharSequence?,
-    val height: Int,
+    val name: String,
+    val slug: String,
+    val picture: String,
+    val dimensions: ArtworkDimensions,
+    val description: String? = null
+)
+
+@Serializable
+data class ArtworkDimensions(
     val width: Int,
-    val description: CharSequence? = null
+    val height: Int
 )
