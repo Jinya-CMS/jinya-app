@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4dc921ea-1728-4e2c-8128-bb5159456002" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UlPLIYV4FNs8esDwgkzYkLefJT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="/opt/dart-sdk" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
+      <option name="filePath" value="$PROJECT_DIR$/app/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4dc921ea-1728-4e2c-8128-bb5159456002" name="Default Changelist" comment="" />
+      <created>1575928150926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575928150926</updated>
+      <workItem from="1575928162218" duration="728000" />
+    </task>
+    <task id="LOCAL-00001" summary="Removed old code">
+      <created>1575928530150</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575928530150</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added flutter based app">
+      <created>1575928557367</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575928557367</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added flutter based app">
+      <created>1575928604051</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575928604051</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added flutter based app">
+      <created>1575928650845</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575928650845</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added flutter based app">
+      <created>1575928720579</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575928720579</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Removed old code" />
+    <MESSAGE value="Added flutter based app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added flutter based app" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="738" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575928345184">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="738" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928345184" />
+    <state x="877" y="329" width="795" height="809" key="CommitChangelistDialog2" timestamp="1575928720530">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="877" y="329" width="795" height="809" key="CommitChangelistDialog2/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928720530" />
+    <state x="1062" y="493" width="424" height="482" key="FileChooserDialogImpl" timestamp="1575928396075">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="1062" y="493" width="424" height="482" key="FileChooserDialogImpl/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928396075" />
+    <state width="2514" height="388" key="GridCell.Tab.0.bottom" timestamp="1575928724922">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.bottom/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
+    <state width="2514" height="388" key="GridCell.Tab.0.center" timestamp="1575928724922">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.center/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
+    <state width="2514" height="388" key="GridCell.Tab.0.left" timestamp="1575928724922">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.left/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
+    <state width="2514" height="388" key="GridCell.Tab.0.right" timestamp="1575928724922">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.right/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
+    <state x="776" y="370" key="SettingsEditor" timestamp="1575928416980">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="776" y="370" key="SettingsEditor/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928416980" />
+    <state x="100" y="130" width="2360" height="1210" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1575928380042">
+      <screen x="0" y="30" width="2560" height="1410" />
+    </state>
+    <state x="100" y="130" width="2360" height="1210" key="com.android.tools.idea.avdmanager.AvdListDialog/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928380042" />
+  </component>
+  <component name="atlassian-ide-plugin-workspace-issues">
+    <option name="view">
+      <JiraViewConfigurationBean>
+        <option name="viewFilterId" value="" />
+      </JiraViewConfigurationBean>
+    </option>
+  </component>
+</project>
