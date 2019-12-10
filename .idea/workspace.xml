@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dc921ea-1728-4e2c-8128-bb5159456002" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/values/strings_en.arb" afterDir="false" />
+    <list default="true" id="4dc921ea-1728-4e2c-8128-bb5159456002" name="Default Changelist" comment="Added icon and app name">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-hdpi/launcher_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-mdpi/launcher_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xhdpi/launcher_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxhdpi/launcher_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/android/app/src/main/res/mipmap-xxxhdpi/launcher_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/images/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +52,16 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="/opt/dart-sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/android" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet">
@@ -145,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575928720579</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added icon and app name">
+      <created>1575991063910</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575991063910</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,30 +193,41 @@
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
     <state x="738" y="393" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928345184" />
-    <state x="877" y="329" width="795" height="809" key="CommitChangelistDialog2" timestamp="1575928720530">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state x="970" y="329" width="795" height="809" key="CommitChangelistDialog2" timestamp="1576008900162">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state x="877" y="329" key="CommitChangelistDialog2/0.30.2560.1410@0.30.2560.1410" timestamp="1575991063752" />
+    <state x="970" y="329" key="CommitChangelistDialog2/0.30.5120.1410@0.30.5120.1410" timestamp="1576008900162" />
     <state x="877" y="329" width="795" height="809" key="CommitChangelistDialog2/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928720530" />
-    <state x="1062" y="493" width="424" height="482" key="FileChooserDialogImpl" timestamp="1575928396075">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state x="1712" y="493" width="424" height="482" key="FileChooserDialogImpl" timestamp="1576010007965">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state x="1712" y="493" key="FileChooserDialogImpl/0.30.5120.1410@0.30.5120.1410" timestamp="1576010007965" />
     <state x="1062" y="493" width="424" height="482" key="FileChooserDialogImpl/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928396075" />
-    <state width="2514" height="388" key="GridCell.Tab.0.bottom" timestamp="1575928724922">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state width="2514" height="388" key="GridCell.Tab.0.bottom" timestamp="1576010359623">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.bottom/0.30.5120.1410@0.30.5120.1410" timestamp="1576010359623" />
     <state width="2514" height="388" key="GridCell.Tab.0.bottom/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
-    <state width="2514" height="388" key="GridCell.Tab.0.center" timestamp="1575928724922">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state width="2514" height="388" key="GridCell.Tab.0.center" timestamp="1576010359622">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.center/0.30.5120.1410@0.30.5120.1410" timestamp="1576010359622" />
     <state width="2514" height="388" key="GridCell.Tab.0.center/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
-    <state width="2514" height="388" key="GridCell.Tab.0.left" timestamp="1575928724922">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state width="2514" height="388" key="GridCell.Tab.0.left" timestamp="1576010359622">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.left/0.30.5120.1410@0.30.5120.1410" timestamp="1576010359622" />
     <state width="2514" height="388" key="GridCell.Tab.0.left/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
-    <state width="2514" height="388" key="GridCell.Tab.0.right" timestamp="1575928724922">
-      <screen x="0" y="30" width="2560" height="1410" />
+    <state width="2514" height="388" key="GridCell.Tab.0.right" timestamp="1576010359623">
+      <screen x="0" y="30" width="5120" height="1410" />
     </state>
+    <state width="2514" height="388" key="GridCell.Tab.0.right/0.30.5120.1410@0.30.5120.1410" timestamp="1576010359623" />
     <state width="2514" height="388" key="GridCell.Tab.0.right/2560.0.2560.1440/0.30.2560.1410@0.30.2560.1410" timestamp="1575928724922" />
+    <state x="1570" y="446" width="380" height="573" key="RollbackChangesDialog" timestamp="1576009714025">
+      <screen x="0" y="30" width="5120" height="1410" />
+    </state>
+    <state x="1570" y="446" width="380" height="573" key="RollbackChangesDialog/0.30.5120.1410@0.30.5120.1410" timestamp="1576009714025" />
     <state x="776" y="370" key="SettingsEditor" timestamp="1575928416980">
       <screen x="0" y="30" width="2560" height="1410" />
     </state>
