@@ -20,6 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons:
+  sqflite:
+  path:
 
 dev_dependencies:
   flutter_test:
