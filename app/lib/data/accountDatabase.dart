@@ -7,7 +7,7 @@ Future<Database> getDatabase() async {
     join(await getDatabasesPath(), 'accounts.db'),
     onCreate: (db, version) {
       return db.execute(
-        'CREATE TABLE accounts(id INTEGER PRIMARY KEY, url TEXT UNIQUE, name TEXT, email TEXT, apiKey TEXT, deviceToken TEXT',
+        'CREATE TABLE accounts(id INTEGER PRIMARY KEY, jinyaId INT, url TEXT UNIQUE, name TEXT, email TEXT, apiKey TEXT, deviceToken TEXT)',
       );
     },
     version: 1,
@@ -21,6 +21,7 @@ class Account {
   final String apiKey;
   final String deviceToken;
   final String url;
+  final int jinyaId;
 
   Account({
     this.id,
@@ -29,11 +30,13 @@ class Account {
     this.apiKey,
     this.deviceToken,
     this.url,
+    this.jinyaId,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'id': this.id,
+      'jinyaId': this.jinyaId,
       'name': this.name,
       'email': this.email,
       'url': this.url,
@@ -47,8 +50,10 @@ class Account {
       email: map['email'],
       apiKey: map['apiKey'],
       id: map['id'],
+      jinyaId: map['jinyaId'],
       name: map['name'],
       url: map['url'],
+      deviceToken: map['deviceToken'],
     );
   }
 }
@@ -85,7 +90,12 @@ Future<Account> getAccount(int id) async {
     where: 'id = ?',
     whereArgs: [id],
   );
-  return Account.fromMap(data.first);
+
+  if (data.length > 0) {
+    return Account.fromMap(data.first);
+  }
+
+  return null;
 }
 
 Future<List<Account>> getAccounts() async {
@@ -93,4 +103,25 @@ Future<List<Account>> getAccounts() async {
   final data = await db.query('accounts');
 
   return List.generate(data.length, (i) => Account.fromMap(data[i]));
+}
+
+Future<int> countAccounts() async {
+  final db = await getDatabase();
+  var x = await db.rawQuery('SELECT COUNT (*) FROM accounts');
+  return Sqflite.firstIntValue(x);
+}
+
+Future<Account> getAccountByUrl(String url) async {
+  final db = await getDatabase();
+  final data = await db.query(
+    'accounts',
+    where: 'url = ?',
+    whereArgs: [url],
+  );
+
+  if (data.length > 0) {
+    return Account.fromMap(data.first);
+  }
+
+  return null;
 }
