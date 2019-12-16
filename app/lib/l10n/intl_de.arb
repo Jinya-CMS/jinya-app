@@ -1,0 +1,120 @@
+{
+  "@@locale": "de",
+  "appName": "Jinya CMS",
+  "@appName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuMedia": "Medien",
+  "@menuMedia": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuPages": "Seiten",
+  "@menuPages": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuForms": "Formulare",
+  "@menuForms": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuArtists": "Künstler",
+  "@menuArtists": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuThemes": "Themes",
+  "@menuThemes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuMenus": "Menüs",
+  "@menuMenus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuAddAccount": "Account hinzufügen",
+  "@menuAddAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuManageAccounts": "Accounts verwalten",
+  "@menuManageAccounts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuSwitchAccount": "Wechseln zu {name}",
+  "@menuSwitchAccount": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "newAccountTitle": "Neuer Jinya Account",
+  "@newAccountTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputJinyaHost": "Jinya Host",
+  "@newAccountInputJinyaHost": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputEmail": "Email",
+  "@newAccountInputEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputPassword": "Passwort",
+  "@newAccountInputPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountActionTwoFactorCode": "ZWEI FAKTOR CODE ANFORDERN",
+  "@newAccountActionTwoFactorCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorExists": "Ein Account mit dieser Emailadresse ist bereits für diesen Host eingerichtet eingerichtet",
+  "@newAccountErrorExists": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidCredentials": "Die eingegebenen Zugangsdaten sind ungültig",
+  "@newAccountErrorInvalidCredentials": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidUrl": "Bitte geben Sie eine gültige Adresse ein",
+  "@newAccountErrorInvalidUrl": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidEmail": "Bitte geben Sie eine gültige Emailadresse ein",
+  "@newAccountErrorInvalidEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidPassword": "Bitte geben Sie ein Passwort ein",
+  "@newAccountErrorInvalidPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorErrorInvalidCode": "Bitte geben Sie einen gültigen Code ein",
+  "@newAccountTwoFactorErrorInvalidCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorActionLogin": "ACCOUNT HINZUFÜGEN",
+  "@newAccountTwoFactorActionLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorInputCode": "Zwei Faktor Code",
+  "@newAccountTwoFactorInputCode": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

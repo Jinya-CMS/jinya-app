@@ -1,0 +1,120 @@
+{
+  "@@last_modified": "2019-12-16T17:39:14.098041",
+  "appName": "Jinya CMS",
+  "@appName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuMedia": "Media",
+  "@menuMedia": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuPages": "Pages",
+  "@menuPages": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuForms": "Forms",
+  "@menuForms": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuArtists": "Artists",
+  "@menuArtists": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuThemes": "Themes",
+  "@menuThemes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuMenus": "Menus",
+  "@menuMenus": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuAddAccount": "Add Account",
+  "@menuAddAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuManageAccounts": "Manage Accounts",
+  "@menuManageAccounts": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "menuSwitchAccount": "Switch to {name}",
+  "@menuSwitchAccount": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "newAccountTitle": "Add Jinya Account",
+  "@newAccountTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputJinyaHost": "Jinya Host",
+  "@newAccountInputJinyaHost": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputEmail": "Email address",
+  "@newAccountInputEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountInputPassword": "Password",
+  "@newAccountInputPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountActionTwoFactorCode": "REQUEST TWO FACTOR CODE",
+  "@newAccountActionTwoFactorCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorExists": "An account with the email address already exists",
+  "@newAccountErrorExists": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidCredentials": "The credentials you provided are invalid",
+  "@newAccountErrorInvalidCredentials": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidUrl": "This is not a valid Jinya Host Url",
+  "@newAccountErrorInvalidUrl": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidEmail": "This is not a valid email address",
+  "@newAccountErrorInvalidEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountErrorInvalidPassword": "You need to input a password",
+  "@newAccountErrorInvalidPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorErrorInvalidCode": "This code is invalid",
+  "@newAccountTwoFactorErrorInvalidCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorActionLogin": "ADD ACCOUNT",
+  "@newAccountTwoFactorActionLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newAccountTwoFactorInputCode": "Two Factor Code",
+  "@newAccountTwoFactorInputCode": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
