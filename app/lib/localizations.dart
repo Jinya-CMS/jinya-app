@@ -27,6 +27,14 @@ class JinyaLocalizations {
     );
   }
 
+  String get actionUndo {
+    return Intl.message(
+      'UNDO',
+      name: 'actionUndo',
+      locale: localeName,
+    );
+  }
+
   String get menuMedia {
     return Intl.message(
       'Media',
@@ -201,6 +209,23 @@ class JinyaLocalizations {
       'Two Factor Code',
       name: 'newAccountTwoFactorInputCode',
       locale: localeName,
+    );
+  }
+
+  String get manageAccountsTitle {
+    return Intl.message(
+      'Manage Accounts',
+      name: 'manageAccountsTitle',
+      locale: localeName,
+    );
+  }
+
+  String manageAccountsDeleteSuccess(name) {
+    return Intl.message(
+      'Successfully deleted $name',
+      name: 'manageAccountsDeleteSuccess',
+      locale: localeName,
+      args: [name],
     );
   }
 }

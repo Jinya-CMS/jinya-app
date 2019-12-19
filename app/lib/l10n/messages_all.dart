@@ -19,7 +19,6 @@ import 'messages_de.dart' as messages_de;
 import 'messages_messages.dart' as messages_messages;
 
 typedef Future<dynamic> LibraryLoader();
-
 Map<String, LibraryLoader> _deferredLibraries = {
   'de': () => new Future.value(null),
   'messages': () => new Future.value(null),

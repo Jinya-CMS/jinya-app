@@ -19,12 +19,18 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'messages';
 
-  static m0(name) => "Switch to ${name}";
+  static m0(name) => "Successfully deleted ${name}";
+
+  static m1(name) => "Switch to ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
 
   static _notInlinedMessages(_) => <String, Function>{
+        "actionUndo": MessageLookupByLibrary.simpleMessage("UNDO"),
         "appName": MessageLookupByLibrary.simpleMessage("Jinya CMS"),
+        "manageAccountsDeleteSuccess": m0,
+        "manageAccountsTitle":
+            MessageLookupByLibrary.simpleMessage("Manage Accounts"),
         "menuAddAccount": MessageLookupByLibrary.simpleMessage("Add Account"),
         "menuArtists": MessageLookupByLibrary.simpleMessage("Artists"),
         "menuForms": MessageLookupByLibrary.simpleMessage("Forms"),
@@ -33,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "menuMedia": MessageLookupByLibrary.simpleMessage("Media"),
         "menuMenus": MessageLookupByLibrary.simpleMessage("Menus"),
         "menuPages": MessageLookupByLibrary.simpleMessage("Pages"),
-        "menuSwitchAccount": m0,
+        "menuSwitchAccount": m1,
         "menuThemes": MessageLookupByLibrary.simpleMessage("Themes"),
         "newAccountActionTwoFactorCode":
             MessageLookupByLibrary.simpleMessage("REQUEST TWO FACTOR CODE"),

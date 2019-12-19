@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFFda9c8a),
         accentColor: Color(0xFF8ac8da),
+        errorColor: Color(0xFFDC3545),
         primaryTextTheme: Typography(platform: TargetPlatform.android).white,
         accentTextTheme: Typography(platform: TargetPlatform.android).white,
         iconTheme: Theme.of(context).iconTheme.copyWith(

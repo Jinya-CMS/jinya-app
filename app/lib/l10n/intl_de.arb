@@ -5,6 +5,11 @@
     "type": "text",
     "placeholders": {}
   },
+  "actionUndo": "RÜCKGÄNGIG",
+  "@actionUndo": {
+    "type": "text",
+    "placeholders": {}
+  },
   "menuMedia": "Medien",
   "@menuMedia": {
     "type": "text",
@@ -116,5 +121,12 @@
   "@newAccountTwoFactorInputCode": {
     "type": "text",
     "placeholders": {}
+  },
+  "manageAccountsDeleteSuccess": "{name} wurde erfolgreich gelöscht",
+  "@manageAccountsDeleteSuccess": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
   }
 }

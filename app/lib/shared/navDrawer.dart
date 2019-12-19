@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jinya_app/accountManagement/manageAccounts.dart';
 import 'package:jinya_app/accountManagement/newAccount.dart';
 import 'package:jinya_app/data/accountDatabase.dart';
 import 'package:jinya_app/localizations.dart';
@@ -8,7 +9,6 @@ import 'package:jinya_app/localizations.dart';
 class JinyaNavigationDrawer extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return JinyaNavigationDrawerState();
   }
 }
@@ -102,8 +102,7 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
             ),
             otherAccountsPictures: accounts
                 .map(
-                  (account) =>
-                  GestureDetector(
+                  (account) => GestureDetector(
                     dragStartBehavior: DragStartBehavior.down,
                     onTap: () {
                       setState(() {
@@ -114,12 +113,12 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                       label: l10n.menuSwitchAccount(account.name),
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(
-                            '${account.url}/api/user/${account
-                                .jinyaId}/profilepicture'),
+                          '${account.url}/api/user/${account.jinyaId}/profilepicture',
+                        ),
                       ),
                     ),
                   ),
-            )
+                )
                 .toList(),
             onDetailsPressed: () {
               _showDrawerContents = !_showDrawerContents;
@@ -164,17 +163,24 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                               ListTile(
                                 leading: const Icon(Icons.add),
                                 title: Text(l10n.menuAddAccount),
-                                onTap: () =>
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => NewAccountPage(),
-                                      ),
-                                    ),
+                                onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => NewAccountPage(),
+                                  ),
+                                ),
                               ),
                               ListTile(
                                 leading: const Icon(Icons.settings),
                                 title: Text(l10n.menuManageAccounts),
+                                onTap: () =>
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ManageAccountsPage(),
+                                      ),
+                                    ),
                               ),
                             ],
                           ),

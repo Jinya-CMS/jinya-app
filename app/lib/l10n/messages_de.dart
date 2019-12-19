@@ -19,12 +19,16 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
-  static m0(name) => "Wechseln zu ${name}";
+  static m0(name) => "${name} wurde erfolgreich gelöscht";
+
+  static m1(name) => "Wechseln zu ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
 
   static _notInlinedMessages(_) => <String, Function>{
+        "actionUndo": MessageLookupByLibrary.simpleMessage("RÜCKGÄNGIG"),
         "appName": MessageLookupByLibrary.simpleMessage("Jinya CMS"),
+        "manageAccountsDeleteSuccess": m0,
         "menuAddAccount":
             MessageLookupByLibrary.simpleMessage("Account hinzufügen"),
         "menuArtists": MessageLookupByLibrary.simpleMessage("Künstler"),
@@ -34,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "menuMedia": MessageLookupByLibrary.simpleMessage("Medien"),
         "menuMenus": MessageLookupByLibrary.simpleMessage("Menüs"),
         "menuPages": MessageLookupByLibrary.simpleMessage("Seiten"),
-        "menuSwitchAccount": m0,
+        "menuSwitchAccount": m1,
         "menuThemes": MessageLookupByLibrary.simpleMessage("Themes"),
         "newAccountActionTwoFactorCode":
             MessageLookupByLibrary.simpleMessage("ZWEI FAKTOR CODE ANFORDERN"),

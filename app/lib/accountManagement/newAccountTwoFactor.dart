@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jinya_app/accountManagement/manageAccounts.dart';
 import 'package:jinya_app/accountManagement/newAccount.dart';
 import 'package:jinya_app/data/accountDatabase.dart';
 import 'package:jinya_app/localizations.dart';
@@ -61,6 +62,9 @@ class NewAccountTwoFactorPageState extends State<NewAccountTwoFactorPage> {
         );
 
         await createAccount(account);
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ManageAccountsPage(),
+        ));
       }
     }
   }
