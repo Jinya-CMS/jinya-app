@@ -173,14 +173,12 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                               ListTile(
                                 leading: const Icon(Icons.settings),
                                 title: Text(l10n.menuManageAccounts),
-                                onTap: () =>
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            ManageAccountsPage(),
-                                      ),
-                                    ),
+                                onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ManageAccountsPage(),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
