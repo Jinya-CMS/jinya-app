@@ -1,13 +1,12 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jinya_app/accountManagement/manageAccounts.dart';
 import 'package:jinya_app/accountManagement/newAccount.dart';
 import 'package:jinya_app/data/accountDatabase.dart';
 import 'package:jinya_app/localizations.dart';
-import 'package:jinya_app/shared/navDrawer.dart';
+import 'package:jinya_app/network/artist/account.dart' as accountClient;
+import 'package:jinya_app/network/authentication/login.dart' as loginClient;
+import 'package:jinya_app/shared/currentUser.dart';
 
 class NewAccountTwoFactorPage extends StatefulWidget {
   @override
@@ -25,46 +24,34 @@ class NewAccountTwoFactorPageState extends State<NewAccountTwoFactorPage> {
 
   void login() async {
     if (_formKey.currentState.validate()) {
-      final client = Dio();
       final l10n = JinyaLocalizations.of(context);
-      final response = await client.post(
-        '${widget.newAccountTransferObject.url}/api/login',
-        data: jsonEncode({
-          'username': widget.newAccountTransferObject.username,
-          'password': widget.newAccountTransferObject.password,
-          'twoFactorCode': _codeController.text,
-        }),
-        options: Options(
-          responseType: ResponseType.json,
-          contentType: 'application/json',
-        ),
-      );
-
-      if (response.statusCode != 200) {
-        final errorData = jsonDecode(response.toString());
-        print(errorData);
-        final snackbar = SnackBar(
-          content: Text(l10n.newAccountErrorInvalidCredentials),
-        );
-        _scaffoldKey.currentState.showSnackBar(snackbar);
-      } else {
-        final currentUser = await client.get(
-          '${widget.newAccountTransferObject.url}/api/account',
-          options: Options(headers: {'JinyaApiKey': response.data['apiKey']}),
+      try {
+        final result = await loginClient.login(
+          widget.newAccountTransferObject.username,
+          widget.newAccountTransferObject.password,
+          host: widget.newAccountTransferObject.url,
+          twoFactorCode: _codeController.text,
         );
         final account = Account(
-          jinyaId: currentUser.data['id'],
           url: widget.newAccountTransferObject.url,
           email: widget.newAccountTransferObject.username,
-          apiKey: response.data['apiKey'],
-          deviceToken: response.data['deviceCode'],
-          name: currentUser.data['artistName'],
+          apiKey: result.apiKey,
+          deviceToken: result.deviceCode,
         );
+        SettingsDatabase.selectedAccount = account;
+        final currentUser = await accountClient.getAccount();
+        account.name = currentUser.artistName;
+        account.jinyaId = currentUser.id;
 
         await createAccount(account);
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => ManageAccountsPage(),
         ));
+      } catch (e) {
+        final snackbar = SnackBar(
+          content: Text(l10n.newAccountErrorInvalidCredentials),
+        );
+        _scaffoldKey.currentState.showSnackBar(snackbar);
       }
     }
   }
@@ -77,8 +64,16 @@ class NewAccountTwoFactorPageState extends State<NewAccountTwoFactorPage> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text(l10n.newAccountTitle),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ManageAccountsPage(),
+            ),
+          ),
+        ),
       ),
-      drawer: JinyaNavigationDrawer(),
       body: Container(
         padding: const EdgeInsets.symmetric(
           vertical: 8.0,

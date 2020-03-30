@@ -24,48 +24,40 @@ class MessageLookup extends MessageLookupByLibrary {
   static m1(name) => "Wechseln zu ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-
-  static _notInlinedMessages(_) => <String, Function>{
-        "actionUndo": MessageLookupByLibrary.simpleMessage("RÜCKGÄNGIG"),
-        "appName": MessageLookupByLibrary.simpleMessage("Jinya CMS"),
-        "manageAccountsDeleteSuccess": m0,
-        "menuAddAccount":
-            MessageLookupByLibrary.simpleMessage("Account hinzufügen"),
-        "menuArtists": MessageLookupByLibrary.simpleMessage("Künstler"),
-        "menuForms": MessageLookupByLibrary.simpleMessage("Formulare"),
-        "menuManageAccounts":
-            MessageLookupByLibrary.simpleMessage("Accounts verwalten"),
-        "menuMedia": MessageLookupByLibrary.simpleMessage("Medien"),
-        "menuMenus": MessageLookupByLibrary.simpleMessage("Menüs"),
-        "menuPages": MessageLookupByLibrary.simpleMessage("Seiten"),
-        "menuSwitchAccount": m1,
-        "menuThemes": MessageLookupByLibrary.simpleMessage("Themes"),
-        "newAccountActionTwoFactorCode":
-            MessageLookupByLibrary.simpleMessage("ZWEI FAKTOR CODE ANFORDERN"),
-        "newAccountErrorExists": MessageLookupByLibrary.simpleMessage(
-            "Ein Account mit dieser Emailadresse ist bereits für diesen Host eingerichtet eingerichtet"),
-        "newAccountErrorInvalidCredentials":
-            MessageLookupByLibrary.simpleMessage(
-                "Die eingegebenen Zugangsdaten sind ungültig"),
-        "newAccountErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
-            "Bitte geben Sie eine gültige Emailadresse ein"),
-        "newAccountErrorInvalidPassword": MessageLookupByLibrary.simpleMessage(
-            "Bitte geben Sie ein Passwort ein"),
-        "newAccountErrorInvalidUrl": MessageLookupByLibrary.simpleMessage(
-            "Bitte geben Sie eine gültige Adresse ein"),
-        "newAccountInputEmail": MessageLookupByLibrary.simpleMessage("Email"),
-        "newAccountInputJinyaHost":
-            MessageLookupByLibrary.simpleMessage("Jinya Host"),
-        "newAccountInputPassword":
-            MessageLookupByLibrary.simpleMessage("Passwort"),
-        "newAccountTitle":
-            MessageLookupByLibrary.simpleMessage("Neuer Jinya Account"),
-        "newAccountTwoFactorActionLogin":
-            MessageLookupByLibrary.simpleMessage("ACCOUNT HINZUFÜGEN"),
-        "newAccountTwoFactorErrorInvalidCode":
-            MessageLookupByLibrary.simpleMessage(
-                "Bitte geben Sie einen gültigen Code ein"),
-        "newAccountTwoFactorInputCode":
-            MessageLookupByLibrary.simpleMessage("Zwei Faktor Code")
-      };
+  static _notInlinedMessages(_) => <String, Function> {
+    "actionUndo" : MessageLookupByLibrary.simpleMessage("RÜCKGÄNGIG"),
+    "appName" : MessageLookupByLibrary.simpleMessage("Jinya CMS"),
+    "manageAccountsDeleteSuccess" : m0,
+    "manageMediaFiles" : MessageLookupByLibrary.simpleMessage("Dateien"),
+    "manageMediaTitle" : MessageLookupByLibrary.simpleMessage("Medienverwaltung"),
+    "menuAddAccount" : MessageLookupByLibrary.simpleMessage("Account hinzufügen"),
+    "menuArtists" : MessageLookupByLibrary.simpleMessage("Künstler"),
+    "menuForms" : MessageLookupByLibrary.simpleMessage("Formulare"),
+    "menuManageAccounts" : MessageLookupByLibrary.simpleMessage("Accounts verwalten"),
+    "menuMedia" : MessageLookupByLibrary.simpleMessage("Medien"),
+    "menuMenus" : MessageLookupByLibrary.simpleMessage("Menüs"),
+    "menuPages" : MessageLookupByLibrary.simpleMessage("Seiten"),
+    "menuSwitchAccount" : m1,
+    "menuThemes" : MessageLookupByLibrary.simpleMessage("Themes"),
+    "newAccountActionTwoFactorCode" : MessageLookupByLibrary.simpleMessage("ZWEI FAKTOR CODE ANFORDERN"),
+    "newAccountErrorExists" : MessageLookupByLibrary.simpleMessage("Ein Account mit dieser Emailadresse ist bereits für diesen Host eingerichtet eingerichtet"),
+    "newAccountErrorInvalidCredentials" : MessageLookupByLibrary.simpleMessage("Die eingegebenen Zugangsdaten sind ungültig"),
+    "newAccountErrorInvalidEmail" : MessageLookupByLibrary.simpleMessage("Bitte geben Sie eine gültige Emailadresse ein"),
+    "newAccountErrorInvalidPassword" : MessageLookupByLibrary.simpleMessage("Bitte geben Sie ein Passwort ein"),
+    "newAccountErrorInvalidUrl" : MessageLookupByLibrary.simpleMessage("Bitte geben Sie eine gültige Adresse ein"),
+    "newAccountInputEmail" : MessageLookupByLibrary.simpleMessage("Email"),
+    "newAccountInputJinyaHost" : MessageLookupByLibrary.simpleMessage("Jinya Host"),
+    "newAccountInputPassword" : MessageLookupByLibrary.simpleMessage("Passwort"),
+    "newAccountTitle" : MessageLookupByLibrary.simpleMessage("Neuer Jinya Account"),
+    "newAccountTwoFactorActionLogin" : MessageLookupByLibrary.simpleMessage("ACCOUNT HINZUFÜGEN"),
+    "newAccountTwoFactorErrorInvalidCode" : MessageLookupByLibrary.simpleMessage("Bitte geben Sie einen gültigen Code ein"),
+    "newAccountTwoFactorInputCode" : MessageLookupByLibrary.simpleMessage("Zwei Faktor Code"),
+    "newFileActionCreate" : MessageLookupByLibrary.simpleMessage("Datei erstellen"),
+    "newFileActionPickFile" : MessageLookupByLibrary.simpleMessage("Datei auswählen"),
+    "newFileExistsError" : MessageLookupByLibrary.simpleMessage("Eine Datei mit diesem Namen existiert bereits."),
+    "newFileName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "newFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
+    "newFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht die nötigen Rechte."),
+    "newFileTitle" : MessageLookupByLibrary.simpleMessage("Neue Datei")
+  };
 }

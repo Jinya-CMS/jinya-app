@@ -128,5 +128,50 @@
     "placeholders": {
       "name": {}
     }
+  },
+  "manageMediaTitle": "Medienverwaltung",
+  "@manageMediaTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaFiles": "Dateien",
+  "@manageMediaFiles": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileTitle": "Neue Datei",
+  "@newFileTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileNameEmpty": "Bitte gib einen Namen ein",
+  "@newFileNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileName": "Name",
+  "@newFileName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileActionCreate": "Datei erstellen",
+  "@newFileActionCreate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileActionPickFile": "Datei auswählen",
+  "@newFileActionPickFile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileNotEnoughPermissionsError": "Du hast nicht die nötigen Rechte.",
+  "@newFileNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileExistsError": "Eine Datei mit diesem Namen existiert bereits.",
+  "@newFileExistsError": {
+    "type": "text",
+    "placeholders": {}
   }
 }

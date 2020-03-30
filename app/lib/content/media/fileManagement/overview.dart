@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:jinya_app/accountManagement/newAccount.dart';
-import 'package:jinya_app/data/accountDatabase.dart';
+import 'package:jinya_app/content/media/fileManagement/newFile.dart';
 import 'package:jinya_app/localizations.dart';
-import 'package:jinya_app/shared/navDrawer.dart';
+import 'package:jinya_app/network/media/files.dart';
+import 'package:jinya_app/shared/currentUser.dart';
 
-class ManageAccountsPage extends StatefulWidget {
+class FilesOverviewWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return ManageAccountsPageState();
+    return FilesOverviewWidgetState();
   }
 }
 
-class ManageAccountsPageState extends State<ManageAccountsPage> {
-  var accounts = List<Account>();
+class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
+  var files = List<File>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void loadAccounts() async {
-    final accs = await getAccounts();
+  void loadFiles() async {
+    final fileList = await getFiles();
     setState(() {
-      accounts = accs;
+      files = fileList;
     });
   }
 
   @override
   void initState() {
-    loadAccounts();
+    loadFiles();
   }
 
   @override
@@ -33,13 +33,9 @@ class ManageAccountsPageState extends State<ManageAccountsPage> {
 
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(l10n.manageAccountsTitle),
-      ),
-      drawer: JinyaNavigationDrawer(),
       body: Scrollbar(
         child: ListView.builder(
-          itemCount: accounts.length,
+          itemCount: files.length,
           padding: EdgeInsets.symmetric(vertical: 8.0),
           itemBuilder: (context, index) => Dismissible(
             background: Container(
@@ -55,33 +51,38 @@ class ManageAccountsPageState extends State<ManageAccountsPage> {
                 ),
               ),
             ),
-            key: Key(accounts[index].id.toString()),
+            key: Key(files[index].id.toString()),
             onDismissed: (direction) {
-              final account = accounts[index];
-              deleteAccount(account.id).then((val) => this.loadAccounts());
+              final account = files[index];
+//    deleteAccount(account.id).then((val) => this.loadFiles()));
               final snackbar = SnackBar(
                 content: Text(l10n.manageAccountsDeleteSuccess(account.name)),
                 action: SnackBarAction(
                   textColor: Theme.of(context).primaryColor,
                   label: l10n.actionUndo,
                   onPressed: () {
-                    createAccount(account).then((val) => this.loadAccounts());
+//    createAccount(account).then((val) => this.loadAccounts());
                   },
                 ),
               );
               scaffoldKey.currentState.showSnackBar(snackbar);
             },
             child: ListTile(
-              title: Text(accounts[index].name),
+              title: Text(files[index].name),
               subtitle: Text(
-                '${accounts[index].email}\n${Uri.parse(accounts[index].url).host}',
+                '${files[index].name}',
               ),
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  '${accounts[index].url}/api/user/${accounts[index].jinyaId}/profilepicture',
+              leading: Container(
+                width: 72,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                      '${SettingsDatabase.selectedAccount.url}/${files[index].path}',
+                    ),
+                  ),
                 ),
               ),
-              isThreeLine: true,
             ),
             direction: DismissDirection.endToStart,
           ),
@@ -92,7 +93,7 @@ class ManageAccountsPageState extends State<ManageAccountsPage> {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => NewAccountPage(),
+              builder: (context) => NewFilePage(),
             ),
           );
         },

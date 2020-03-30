@@ -21,11 +21,13 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Jinya CMS',
       theme: ThemeData(
-        primaryColor: Color(0xFFda9c8a),
-        accentColor: Color(0xFF8ac8da),
-        errorColor: Color(0xFFDC3545),
-        primaryTextTheme: Typography(platform: TargetPlatform.android).white,
-        accentTextTheme: Typography(platform: TargetPlatform.android).white,
+        primaryColor: Color(0xFF504a56),
+        accentColor: Color(0xFF966554),
+        errorColor: Color(0xFF5C0B0B),
+        primaryTextTheme:
+            Typography.material2018(platform: TargetPlatform.android).white,
+        accentTextTheme:
+            Typography.material2018(platform: TargetPlatform.android).white,
         iconTheme: Theme.of(context).iconTheme.copyWith(
               color: Colors.white,
             ),

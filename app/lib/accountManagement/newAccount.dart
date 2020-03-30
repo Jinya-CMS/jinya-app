@@ -1,12 +1,10 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jinya_app/accountManagement/manageAccounts.dart';
 import 'package:jinya_app/accountManagement/newAccountTwoFactor.dart';
 import 'package:jinya_app/data/accountDatabase.dart';
 import 'package:jinya_app/localizations.dart';
-import 'package:jinya_app/shared/navDrawer.dart';
+import 'package:jinya_app/network/authentication/login.dart' as network;
 import 'package:validators/validators.dart';
 
 class NewAccountPage extends StatefulWidget {
@@ -31,7 +29,6 @@ class NewAccountPageState extends State<NewAccountPage> {
 
   void requestTwoFactorCode() async {
     if (_formKey.currentState.validate()) {
-      final client = Dio();
       final l10n = JinyaLocalizations.of(this.context);
       final host = _hostController.text;
       final email = _emailController.text;
@@ -44,23 +41,8 @@ class NewAccountPageState extends State<NewAccountPage> {
         );
         _scaffoldKey.currentState.showSnackBar(snackbar);
       } else {
-        final response = await client.post(
-          '$host/api/2fa',
-          data: jsonEncode({'username': email, 'password': password}),
-          options: Options(
-            responseType: ResponseType.json,
-            contentType: 'application/json',
-          ),
-        );
-
-        if (response.statusCode != 204) {
-          final errorData = jsonDecode(response.toString());
-          print(errorData);
-          final snackbar = SnackBar(
-            content: Text(l10n.newAccountErrorInvalidCredentials),
-          );
-          _scaffoldKey.currentState.showSnackBar(snackbar);
-        } else {
+        try {
+          await network.requestTwoFactorCode(email, password, host: host);
           final transferObject = NewAccountTransferObject(
             email,
             password,
@@ -69,6 +51,11 @@ class NewAccountPageState extends State<NewAccountPage> {
           Navigator.of(this.context).push(MaterialPageRoute(
             builder: (context) => NewAccountTwoFactorPage(transferObject),
           ));
+        } catch (e) {
+          final snackbar = SnackBar(
+            content: Text(l10n.newAccountErrorInvalidCredentials),
+          );
+          _scaffoldKey.currentState.showSnackBar(snackbar);
         }
       }
     }
@@ -82,8 +69,17 @@ class NewAccountPageState extends State<NewAccountPage> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text(l10n.newAccountTitle),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ManageAccountsPage(),
+            ),
+          ),
+        ),
       ),
-      drawer: JinyaNavigationDrawer(),
       body: Container(
         padding: const EdgeInsets.symmetric(
           vertical: 8.0,

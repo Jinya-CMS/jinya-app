@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jinya_app/accountManagement/manageAccounts.dart';
 import 'package:jinya_app/accountManagement/newAccount.dart';
+import 'package:jinya_app/content/media/mediaOverview.dart';
 import 'package:jinya_app/data/accountDatabase.dart';
+import 'package:jinya_app/home.dart';
 import 'package:jinya_app/localizations.dart';
+import 'package:jinya_app/shared/currentUser.dart';
 
 class JinyaNavigationDrawer extends StatefulWidget {
   @override
@@ -25,9 +28,9 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
   AnimationController _animationController;
   Animation<double> _drawerContentsOpacity;
   Animation<Offset> _drawerDetailsPosition;
-  bool _showDrawerContents = true;
-  Account currentUser;
-  List<Account> accounts = List<Account>();
+  var _showDrawerContents = true;
+  var currentUser = SettingsDatabase.selectedAccount;
+  var accounts = List<Account>();
 
   void loadAccounts() async {
     var values = await getAccounts();
@@ -36,18 +39,20 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
     if (values.length > 0) {
       if (currentUser == null && values.length > 0) {
         currUser = values.first;
-      } else {
-        currUser = currentUser;
+        SettingsDatabase.selectedAccount = currUser;
+        setState(() {
+          currentUser = values.first;
+        });
       }
 
-      var otherAccounts =
-          values.where((account) => account.url != currUser.url);
+      var otherAccounts = values.where(
+        (account) => account.id != SettingsDatabase.selectedAccount.id,
+      );
       if (otherAccounts.isNotEmpty) {
         accs.addAll(otherAccounts);
       }
       setState(() {
         accounts = accs;
-        currentUser = currUser;
       });
     } else {
       _animationController.forward();
@@ -105,8 +110,15 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                   (account) => GestureDetector(
                     dragStartBehavior: DragStartBehavior.down,
                     onTap: () {
+                      SettingsDatabase.selectedAccount = account;
                       setState(() {
                         currentUser = account;
+                        loadAccounts();
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
                       });
                     },
                     child: Semantics(
@@ -148,6 +160,12 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                           children: _drawerContents.map<Widget>((String id) {
                             return ListTile(
                               title: Text(id),
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      MediaOverviewPage(MediaTab.Files),
+                                ),
+                              ),
                             );
                           }).toList(),
                         ),
@@ -163,8 +181,7 @@ class JinyaNavigationDrawerState extends State<JinyaNavigationDrawer>
                               ListTile(
                                 leading: const Icon(Icons.add),
                                 title: Text(l10n.menuAddAccount),
-                                onTap: () => Navigator.push(
-                                  context,
+                                onTap: () => Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => NewAccountPage(),
                                   ),

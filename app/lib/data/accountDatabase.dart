@@ -15,13 +15,13 @@ Future<Database> getDatabase() async {
 }
 
 class Account {
-  final int id;
-  final String name;
-  final String email;
-  final String apiKey;
-  final String deviceToken;
-  final String url;
-  final int jinyaId;
+  int id;
+  String name;
+  String email;
+  String apiKey;
+  String deviceToken;
+  String url;
+  int jinyaId;
 
   Account({
     this.id,

@@ -228,6 +228,126 @@ class JinyaLocalizations {
       args: [name],
     );
   }
+
+  String get manageMediaTitle {
+    return Intl.message(
+      'Media management',
+      name: 'manageMediaTitle',
+      locale: localeName,
+    );
+  }
+
+  String get manageMediaFiles {
+    return Intl.message(
+      'Files',
+      name: 'manageMediaFiles',
+      locale: localeName,
+    );
+  }
+
+  String get newFileTitle {
+    return Intl.message(
+      'New File',
+      name: 'newFileTitle',
+      locale: localeName,
+    );
+  }
+
+  String get newFileNameEmpty {
+    return Intl.message(
+      'Please provide a name',
+      name: 'newFileNameEmpty',
+      locale: localeName,
+    );
+  }
+
+  String get newFileName {
+    return Intl.message(
+      'Name',
+      name: 'newFileName',
+      locale: localeName,
+    );
+  }
+
+  String get newFileActionCreate {
+    return Intl.message(
+      'Create file',
+      name: 'newFileActionCreate',
+      locale: localeName,
+    );
+  }
+
+  String get newFileActionPickFile {
+    return Intl.message(
+      'Select file',
+      name: 'newFileActionPickFile',
+      locale: localeName,
+    );
+  }
+
+  String get newFileNotEnoughPermissionsError {
+    return Intl.message(
+      'You don\'t have enough permissions',
+      name: 'newFileNotEnoughPermissionsError',
+      locale: localeName,
+    );
+  }
+
+  String get newFileExistsError {
+    return Intl.message(
+      'A file with that name already exists',
+      name: 'newFileExistsError',
+      locale: localeName,
+    );
+  }
+
+  String get loginInvalidCredentials {
+    return Intl.message(
+      'Invalid credentials',
+      name: 'loginInvalidCredentials',
+      locale: localeName,
+    );
+  }
+
+  String get loginTitle {
+    return Intl.message(
+      'Login',
+      name: 'loginTitle',
+      locale: localeName,
+    );
+  }
+
+  String get loginInstance {
+    return Intl.message(
+      'Jinya Server',
+      name: 'loginInstance',
+      locale: localeName,
+    );
+  }
+
+  String get loginEmail {
+    return Intl.message(
+      'Email address',
+      name: 'loginEmail',
+      locale: localeName,
+    );
+  }
+
+  String get loginPassword {
+    return Intl.message(
+      'Password',
+      name: 'loginPassword',
+      locale: localeName,
+    );
+  }
+
+  String get loginActionLogin {
+    return Intl.message(
+      'Login',
+      name: 'loginActionLogin',
+      locale: localeName,
+    );
+  }
 }
 
 class JinyaLocalizationsDelegate

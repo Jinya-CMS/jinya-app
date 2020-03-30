@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2019-12-19T01:13:54.610969",
+  "@@last_modified": "2020-03-30T21:07:15.324703",
   "appName": "Jinya CMS",
   "@appName": {
     "type": "text",
@@ -133,5 +133,80 @@
     "placeholders": {
       "name": {}
     }
+  },
+  "manageMediaTitle": "Media management",
+  "@manageMediaTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaFiles": "Files",
+  "@manageMediaFiles": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileTitle": "New File",
+  "@newFileTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileNameEmpty": "Please provide a name",
+  "@newFileNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileName": "Name",
+  "@newFileName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileActionCreate": "Create file",
+  "@newFileActionCreate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileActionPickFile": "Select file",
+  "@newFileActionPickFile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileNotEnoughPermissionsError": "You don't have enough permissions",
+  "@newFileNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newFileExistsError": "A file with that name already exists",
+  "@newFileExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginInvalidCredentials": "Invalid credentials",
+  "@loginInvalidCredentials": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginTitle": "Login",
+  "@loginTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginInstance": "Jinya Server",
+  "@loginInstance": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginEmail": "Email address",
+  "@loginEmail": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginPassword": "Password",
+  "@loginPassword": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginActionLogin": "Login",
+  "@loginActionLogin": {
+    "type": "text",
+    "placeholders": {}
   }
 }
