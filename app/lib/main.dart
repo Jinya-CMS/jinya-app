@@ -33,10 +33,10 @@ class MyApp extends StatelessWidget {
             ),
         accentIconTheme: Theme.of(context).iconTheme.copyWith(
               color: Colors.white,
-            ),
+        ),
         primaryIconTheme: Theme.of(context).iconTheme.copyWith(
-              color: Colors.white,
-            ),
+          color: Colors.white,
+        ),
       ),
       home: HomePage(),
     );
