@@ -5,8 +5,23 @@
     "type": "text",
     "placeholders": {}
   },
-  "actionUndo": "RÜCKGÄNGIG",
+  "actionEdit": "Bearbeiten",
+  "@actionEdit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionUndo": "Rückgängig",
   "@actionUndo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionDelete": "Löschen",
+  "@actionDelete": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionDontDelete": "Nicht löschen",
+  "@actionDontDelete": {
     "type": "text",
     "placeholders": {}
   },
@@ -139,6 +154,39 @@
     "type": "text",
     "placeholders": {}
   },
+  "manageMediaFilesDeleteTitle": "Datei wirklich löschen?",
+  "@manageMediaFilesDeleteTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaFilesDeleteContent": "Bist du sicher, dass du die Datei {name} löschen willst? Die Datei wird dadurch aus allen Galerien entfernt.",
+  "@manageMediaFilesDeleteContent": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteConflict": "{name} wird momentan verwendet und kann nicht gelöscht werden.",
+  "@manageMediaFilesDeleteConflict": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteSuccess": "Datei {name} wurde erfolgreich gelöscht",
+  "@manageMediaFilesDeleteSuccess": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteUnknown": "{name} konnte nicht gelöscht werden.",
+  "@manageMediaFilesDeleteUnknown": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
   "newFileTitle": "Neue Datei",
   "@newFileTitle": {
     "type": "text",
@@ -171,6 +219,36 @@
   },
   "newFileExistsError": "Eine Datei mit diesem Namen existiert bereits.",
   "@newFileExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileNameEmpty": "Bitte gib einen Namen ein",
+  "@editFileNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileName": "Name",
+  "@editFileName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileActionUpdate": "Datei aktualisieren",
+  "@editFileActionUpdate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileActionPickFile": "Neue Datei auswählen",
+  "@editFileActionPickFile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileNotEnoughPermissionsError": "Du hast nicht genug Rechte",
+  "@editFileNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileExistsError": "Eine Datei mit diesem Namen existiert bereits",
+  "@editFileExistsError": {
     "type": "text",
     "placeholders": {}
   }

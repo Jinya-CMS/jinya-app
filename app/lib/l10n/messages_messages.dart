@@ -21,12 +21,29 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(name) => "Successfully deleted ${name}";
 
-  static m1(name) => "Switch to ${name}";
+  static m1(name) => "${name} cannot be deleted, cause it is in use.";
+
+  static m2(name) => "Do you want to delete the file ${name}? It will be removed from all galleries.";
+
+  static m3(name) => "Successfully deleted ${name}";
+
+  static m4(name) => "Failed to delete ${name}";
+
+  static m5(name) => "Switch to ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "actionUndo" : MessageLookupByLibrary.simpleMessage("UNDO"),
+    "actionDelete" : MessageLookupByLibrary.simpleMessage("Delete"),
+    "actionDontDelete" : MessageLookupByLibrary.simpleMessage("Don\'t delete"),
+    "actionEdit" : MessageLookupByLibrary.simpleMessage("Edit"),
+    "actionUndo" : MessageLookupByLibrary.simpleMessage("Undo"),
     "appName" : MessageLookupByLibrary.simpleMessage("Jinya CMS"),
+    "editFileActionPickFile" : MessageLookupByLibrary.simpleMessage("Select new file"),
+    "editFileActionUpdate" : MessageLookupByLibrary.simpleMessage("Update file"),
+    "editFileExistsError" : MessageLookupByLibrary.simpleMessage("A file with that name already exists"),
+    "editFileName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "editFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Please provide a name"),
+    "editFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("You don\'t have enough permissions"),
     "loginActionLogin" : MessageLookupByLibrary.simpleMessage("Login"),
     "loginEmail" : MessageLookupByLibrary.simpleMessage("Email address"),
     "loginInstance" : MessageLookupByLibrary.simpleMessage("Jinya Server"),
@@ -36,6 +53,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "manageAccountsDeleteSuccess" : m0,
     "manageAccountsTitle" : MessageLookupByLibrary.simpleMessage("Manage Accounts"),
     "manageMediaFiles" : MessageLookupByLibrary.simpleMessage("Files"),
+    "manageMediaFilesDeleteConflict" : m1,
+    "manageMediaFilesDeleteContent" : m2,
+    "manageMediaFilesDeleteSuccess" : m3,
+    "manageMediaFilesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Really delete file?"),
+    "manageMediaFilesDeleteUnknown" : m4,
     "manageMediaTitle" : MessageLookupByLibrary.simpleMessage("Media management"),
     "menuAddAccount" : MessageLookupByLibrary.simpleMessage("Add Account"),
     "menuArtists" : MessageLookupByLibrary.simpleMessage("Artists"),
@@ -44,7 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "menuMedia" : MessageLookupByLibrary.simpleMessage("Media"),
     "menuMenus" : MessageLookupByLibrary.simpleMessage("Menus"),
     "menuPages" : MessageLookupByLibrary.simpleMessage("Pages"),
-    "menuSwitchAccount" : m1,
+    "menuSwitchAccount" : m5,
     "menuThemes" : MessageLookupByLibrary.simpleMessage("Themes"),
     "newAccountActionTwoFactorCode" : MessageLookupByLibrary.simpleMessage("REQUEST TWO FACTOR CODE"),
     "newAccountErrorExists" : MessageLookupByLibrary.simpleMessage("An account with the email address already exists"),

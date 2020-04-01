@@ -21,14 +21,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(name) => "${name} wurde erfolgreich gelöscht";
 
-  static m1(name) => "Wechseln zu ${name}";
+  static m1(name) => "${name} wird momentan verwendet und kann nicht gelöscht werden.";
+
+  static m2(name) => "Bist du sicher, dass du die Datei ${name} löschen willst? Die Datei wird dadurch aus allen Galerien entfernt.";
+
+  static m3(name) => "Datei ${name} wurde erfolgreich gelöscht";
+
+  static m4(name) => "${name} konnte nicht gelöscht werden.";
+
+  static m5(name) => "Wechseln zu ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "actionUndo" : MessageLookupByLibrary.simpleMessage("RÜCKGÄNGIG"),
+    "actionDelete" : MessageLookupByLibrary.simpleMessage("Löschen"),
+    "actionDontDelete" : MessageLookupByLibrary.simpleMessage("Nicht löschen"),
+    "actionEdit" : MessageLookupByLibrary.simpleMessage("Bearbeiten"),
+    "actionUndo" : MessageLookupByLibrary.simpleMessage("Rückgängig"),
     "appName" : MessageLookupByLibrary.simpleMessage("Jinya CMS"),
+    "editFileActionPickFile" : MessageLookupByLibrary.simpleMessage("Neue Datei auswählen"),
+    "editFileActionUpdate" : MessageLookupByLibrary.simpleMessage("Datei aktualisieren"),
+    "editFileExistsError" : MessageLookupByLibrary.simpleMessage("Eine Datei mit diesem Namen existiert bereits"),
+    "editFileName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "editFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
+    "editFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht genug Rechte"),
     "manageAccountsDeleteSuccess" : m0,
     "manageMediaFiles" : MessageLookupByLibrary.simpleMessage("Dateien"),
+    "manageMediaFilesDeleteConflict" : m1,
+    "manageMediaFilesDeleteContent" : m2,
+    "manageMediaFilesDeleteSuccess" : m3,
+    "manageMediaFilesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Datei wirklich löschen?"),
+    "manageMediaFilesDeleteUnknown" : m4,
     "manageMediaTitle" : MessageLookupByLibrary.simpleMessage("Medienverwaltung"),
     "menuAddAccount" : MessageLookupByLibrary.simpleMessage("Account hinzufügen"),
     "menuArtists" : MessageLookupByLibrary.simpleMessage("Künstler"),
@@ -37,7 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "menuMedia" : MessageLookupByLibrary.simpleMessage("Medien"),
     "menuMenus" : MessageLookupByLibrary.simpleMessage("Menüs"),
     "menuPages" : MessageLookupByLibrary.simpleMessage("Seiten"),
-    "menuSwitchAccount" : m1,
+    "menuSwitchAccount" : m5,
     "menuThemes" : MessageLookupByLibrary.simpleMessage("Themes"),
     "newAccountActionTwoFactorCode" : MessageLookupByLibrary.simpleMessage("ZWEI FAKTOR CODE ANFORDERN"),
     "newAccountErrorExists" : MessageLookupByLibrary.simpleMessage("Ein Account mit dieser Emailadresse ist bereits für diesen Host eingerichtet eingerichtet"),

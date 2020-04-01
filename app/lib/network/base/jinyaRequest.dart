@@ -157,3 +157,24 @@ Future<int> unauthenticatedHead(String path) async {
 
   return response.statusCode;
 }
+
+Future<JinyaResponse> delete(String path) async {
+  final response = await http
+      .delete('${SettingsDatabase.selectedAccount.url}/$path', headers: {
+    HttpHeaders.contentTypeHeader: 'application/json',
+    'JinyaApiKey': SettingsDatabase.selectedAccount.apiKey,
+    'JinyaDeviceCode': SettingsDatabase.selectedAccount.deviceToken,
+  });
+
+  return JinyaResponse.fromHttpResponse(response);
+}
+
+Future<JinyaResponse> unauthenticatedDelete(String path) async {
+  final response = await http
+      .delete('${SettingsDatabase.selectedAccount.url}/$path', headers: {
+    HttpHeaders.contentTypeHeader: 'application/json',
+    'JinyaDeviceCode': SettingsDatabase.selectedAccount.deviceToken,
+  });
+
+  return JinyaResponse.fromHttpResponse(response);
+}

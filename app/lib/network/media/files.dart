@@ -41,6 +41,17 @@ Future<List<File>> getFiles() async {
   }
 }
 
+Future<File> getFile(int id) async {
+  final response = await get('api/media/file/$id');
+  if (response.statusCode != io.HttpStatus.ok) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  } else {
+    final data = response.data;
+    return File.fromMap(data);
+  }
+}
+
 Future<File> createFile(String name) async {
   final response = await post('api/media/file', data: {'name': name});
   if (response.statusCode != io.HttpStatus.created) {
@@ -48,6 +59,22 @@ Future<File> createFile(String name) async {
     throw Exception('This should not happen');
   } else {
     return File.fromMap(response.data);
+  }
+}
+
+Future<void> updateFile(int id, String name) async {
+  final response = await put('api/media/file/$id', data: {'name': name});
+  if (response.statusCode != io.HttpStatus.noContent) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  }
+}
+
+Future<void> deleteFile(int id) async {
+  final response = await delete('api/media/file/$id');
+  if (response.statusCode != io.HttpStatus.noContent) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
   }
 }
 

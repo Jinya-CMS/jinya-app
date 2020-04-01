@@ -1,12 +1,27 @@
 {
-  "@@last_modified": "2020-03-30T21:07:15.324703",
+  "@@last_modified": "2020-04-01T22:19:02.233663",
   "appName": "Jinya CMS",
   "@appName": {
     "type": "text",
     "placeholders": {}
   },
-  "actionUndo": "UNDO",
+  "actionUndo": "Undo",
   "@actionUndo": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionEdit": "Edit",
+  "@actionEdit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionDelete": "Delete",
+  "@actionDelete": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "actionDontDelete": "Don't delete",
+  "@actionDontDelete": {
     "type": "text",
     "placeholders": {}
   },
@@ -144,6 +159,39 @@
     "type": "text",
     "placeholders": {}
   },
+  "manageMediaFilesDeleteTitle": "Really delete file?",
+  "@manageMediaFilesDeleteTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaFilesDeleteContent": "Do you want to delete the file {name}? It will be removed from all galleries.",
+  "@manageMediaFilesDeleteContent": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteSuccess": "Successfully deleted {name}",
+  "@manageMediaFilesDeleteSuccess": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteConflict": "{name} cannot be deleted, cause it is in use.",
+  "@manageMediaFilesDeleteConflict": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaFilesDeleteUnknown": "Failed to delete {name}",
+  "@manageMediaFilesDeleteUnknown": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
   "newFileTitle": "New File",
   "@newFileTitle": {
     "type": "text",
@@ -176,6 +224,36 @@
   },
   "newFileExistsError": "A file with that name already exists",
   "@newFileExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileNameEmpty": "Please provide a name",
+  "@editFileNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileName": "Name",
+  "@editFileName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileActionUpdate": "Update file",
+  "@editFileActionUpdate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileActionPickFile": "Select new file",
+  "@editFileActionPickFile": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileNotEnoughPermissionsError": "You don't have enough permissions",
+  "@editFileNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editFileExistsError": "A file with that name already exists",
+  "@editFileExistsError": {
     "type": "text",
     "placeholders": {}
   },

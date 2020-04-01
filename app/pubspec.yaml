@@ -30,6 +30,9 @@ dependencies:
   validators:
   dio:
   file_picker:
+  chewie:
+  chewie_audio:
+  video_player:
 
 dev_dependencies:
   flutter_test:

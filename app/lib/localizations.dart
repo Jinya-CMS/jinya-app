@@ -29,8 +29,32 @@ class JinyaLocalizations {
 
   String get actionUndo {
     return Intl.message(
-      'UNDO',
+      'Undo',
       name: 'actionUndo',
+      locale: localeName,
+    );
+  }
+
+  String get actionEdit {
+    return Intl.message(
+      'Edit',
+      name: 'actionEdit',
+      locale: localeName,
+    );
+  }
+
+  String get actionDelete {
+    return Intl.message(
+      'Delete',
+      name: 'actionDelete',
+      locale: localeName,
+    );
+  }
+
+  String get actionDontDelete {
+    return Intl.message(
+      "Don't delete",
+      name: 'actionDontDelete',
       locale: localeName,
     );
   }
@@ -245,6 +269,50 @@ class JinyaLocalizations {
     );
   }
 
+  String get manageMediaFilesDeleteTitle {
+    return Intl.message(
+      'Really delete file?',
+      name: 'manageMediaFilesDeleteTitle',
+      locale: localeName,
+    );
+  }
+
+  String manageMediaFilesDeleteContent(name) {
+    return Intl.message(
+      'Do you want to delete the file $name? It will be removed from all galleries.',
+      name: 'manageMediaFilesDeleteContent',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaFilesDeleteSuccess(name) {
+    return Intl.message(
+      'Successfully deleted $name',
+      name: 'manageMediaFilesDeleteSuccess',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaFilesDeleteConflict(name) {
+    return Intl.message(
+      '$name cannot be deleted, cause it is in use.',
+      name: 'manageMediaFilesDeleteConflict',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaFilesDeleteUnknown(name) {
+    return Intl.message(
+      'Failed to delete $name',
+      name: 'manageMediaFilesDeleteUnknown',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
   String get newFileTitle {
     return Intl.message(
       'New File',
@@ -297,6 +365,54 @@ class JinyaLocalizations {
     return Intl.message(
       'A file with that name already exists',
       name: 'newFileExistsError',
+      locale: localeName,
+    );
+  }
+
+  String get editFileNameEmpty {
+    return Intl.message(
+      'Please provide a name',
+      name: 'editFileNameEmpty',
+      locale: localeName,
+    );
+  }
+
+  String get editFileName {
+    return Intl.message(
+      'Name',
+      name: 'editFileName',
+      locale: localeName,
+    );
+  }
+
+  String get editFileActionUpdate {
+    return Intl.message(
+      'Update file',
+      name: 'editFileActionUpdate',
+      locale: localeName,
+    );
+  }
+
+  String get editFileActionPickFile {
+    return Intl.message(
+      'Select new file',
+      name: 'editFileActionPickFile',
+      locale: localeName,
+    );
+  }
+
+  String get editFileNotEnoughPermissionsError {
+    return Intl.message(
+      'You don\'t have enough permissions',
+      name: 'editFileNotEnoughPermissionsError',
+      locale: localeName,
+    );
+  }
+
+  String get editFileExistsError {
+    return Intl.message(
+      'A file with that name already exists',
+      name: 'editFileExistsError',
       locale: localeName,
     );
   }
