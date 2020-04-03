@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jinya_app/content/media/fileManagement/overview.dart';
+import 'package:jinya_app/content/media/galleryManagement/overview.dart';
 import 'package:jinya_app/localizations.dart';
 import 'package:jinya_app/network/media/files.dart';
 import 'package:jinya_app/shared/navDrawer.dart';
@@ -36,6 +37,7 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
 
   @override
   void initState() {
+    super.initState();
     getFiles();
   }
 
@@ -55,7 +57,9 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
               Tab(
                 text: l10n.manageMediaFiles.toUpperCase(),
               ),
-              Tab(icon: Icon(Icons.directions_transit)),
+              Tab(
+                text: l10n.manageMediaGalleries.toUpperCase(),
+              ),
             ],
           ),
         ),
@@ -63,7 +67,7 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
         body: TabBarView(
           children: [
             FilesOverviewWidget(),
-            Icon(Icons.directions_transit),
+            GalleriesOverviewWidget(),
           ],
         ),
       ),

@@ -29,7 +29,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m4(name) => "Failed to delete ${name}";
 
-  static m5(name) => "Switch to ${name}";
+  static m5(name) => "${name} cannot be deleted, cause it is in use.";
+
+  static m6(name) => "Do you want to delete the gallery ${name}? It will be removed from all galleries.";
+
+  static m7(name) => "Successfully deleted ${name}";
+
+  static m8(name) => "Failed to delete ${name}";
+
+  static m9(name) => "Switch to ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -44,6 +52,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "editFileName" : MessageLookupByLibrary.simpleMessage("Name"),
     "editFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Please provide a name"),
     "editFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("You don\'t have enough permissions"),
+    "editGalleryActionUpdate" : MessageLookupByLibrary.simpleMessage("Update gallery"),
+    "editGalleryDescription" : MessageLookupByLibrary.simpleMessage("Description"),
+    "editGalleryExistsError" : MessageLookupByLibrary.simpleMessage("A gallery with that name already exists"),
+    "editGalleryName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "editGalleryNameEmpty" : MessageLookupByLibrary.simpleMessage("Please provide a name"),
+    "editGalleryNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("You don\'t have enough permissions"),
+    "editGalleryOrientation" : MessageLookupByLibrary.simpleMessage("Orientation"),
+    "editGalleryOrientationHorizontal" : MessageLookupByLibrary.simpleMessage("Horizontal"),
+    "editGalleryOrientationVertical" : MessageLookupByLibrary.simpleMessage("Vertical"),
+    "editGalleryType" : MessageLookupByLibrary.simpleMessage("Type"),
+    "editGalleryTypeMasonry" : MessageLookupByLibrary.simpleMessage("Masonry"),
+    "editGalleryTypeSequence" : MessageLookupByLibrary.simpleMessage("Sequence"),
     "loginActionLogin" : MessageLookupByLibrary.simpleMessage("Login"),
     "loginEmail" : MessageLookupByLibrary.simpleMessage("Email address"),
     "loginInstance" : MessageLookupByLibrary.simpleMessage("Jinya Server"),
@@ -58,6 +78,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "manageMediaFilesDeleteSuccess" : m3,
     "manageMediaFilesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Really delete file?"),
     "manageMediaFilesDeleteUnknown" : m4,
+    "manageMediaGalleries" : MessageLookupByLibrary.simpleMessage("Galleries"),
+    "manageMediaGalleriesDeleteConflict" : m5,
+    "manageMediaGalleriesDeleteContent" : m6,
+    "manageMediaGalleriesDeleteSuccess" : m7,
+    "manageMediaGalleriesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Really delete gallery?"),
+    "manageMediaGalleriesDeleteUnknown" : m8,
     "manageMediaTitle" : MessageLookupByLibrary.simpleMessage("Media management"),
     "menuAddAccount" : MessageLookupByLibrary.simpleMessage("Add Account"),
     "menuArtists" : MessageLookupByLibrary.simpleMessage("Artists"),
@@ -66,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "menuMedia" : MessageLookupByLibrary.simpleMessage("Media"),
     "menuMenus" : MessageLookupByLibrary.simpleMessage("Menus"),
     "menuPages" : MessageLookupByLibrary.simpleMessage("Pages"),
-    "menuSwitchAccount" : m5,
+    "menuSwitchAccount" : m9,
     "menuThemes" : MessageLookupByLibrary.simpleMessage("Themes"),
     "newAccountActionTwoFactorCode" : MessageLookupByLibrary.simpleMessage("REQUEST TWO FACTOR CODE"),
     "newAccountErrorExists" : MessageLookupByLibrary.simpleMessage("An account with the email address already exists"),
@@ -87,6 +113,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "newFileName" : MessageLookupByLibrary.simpleMessage("Name"),
     "newFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Please provide a name"),
     "newFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("You don\'t have enough permissions"),
-    "newFileTitle" : MessageLookupByLibrary.simpleMessage("New File")
+    "newFileTitle" : MessageLookupByLibrary.simpleMessage("New File"),
+    "newGalleryActionCreate" : MessageLookupByLibrary.simpleMessage("Create gallery"),
+    "newGalleryDescription" : MessageLookupByLibrary.simpleMessage("Description"),
+    "newGalleryExistsError" : MessageLookupByLibrary.simpleMessage("A gallery with that name already exists"),
+    "newGalleryName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "newGalleryNameEmpty" : MessageLookupByLibrary.simpleMessage("Please provide a name"),
+    "newGalleryNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("You don\'t have enough permissions"),
+    "newGalleryOrientation" : MessageLookupByLibrary.simpleMessage("Orientation"),
+    "newGalleryOrientationHorizontal" : MessageLookupByLibrary.simpleMessage("Horizontal"),
+    "newGalleryOrientationVertical" : MessageLookupByLibrary.simpleMessage("Vertical"),
+    "newGalleryTitle" : MessageLookupByLibrary.simpleMessage("New Gallery"),
+    "newGalleryType" : MessageLookupByLibrary.simpleMessage("Type"),
+    "newGalleryTypeMasonry" : MessageLookupByLibrary.simpleMessage("Masonry"),
+    "newGalleryTypeSequence" : MessageLookupByLibrary.simpleMessage("Sequence")
   };
 }

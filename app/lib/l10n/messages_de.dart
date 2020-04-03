@@ -29,7 +29,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m4(name) => "${name} konnte nicht gelöscht werden.";
 
-  static m5(name) => "Wechseln zu ${name}";
+  static m5(name) => "Die Galerie ${name} kann nicht gelöscht werden, da sie verwendet wird.";
+
+  static m6(name) => "Soll die Galerie ${name} wirklich gelöscht werden?";
+
+  static m7(name) => "${name} erfolgreich gelöscht";
+
+  static m8(name) => "Löschen von Galerie ${name} fehlgeschlagen";
+
+  static m9(name) => "Wechseln zu ${name}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -44,6 +52,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "editFileName" : MessageLookupByLibrary.simpleMessage("Name"),
     "editFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
     "editFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht genug Rechte"),
+    "editGalleryActionUpdate" : MessageLookupByLibrary.simpleMessage("Galerie speichern"),
+    "editGalleryDescription" : MessageLookupByLibrary.simpleMessage("Beschreibung"),
+    "editGalleryExistsError" : MessageLookupByLibrary.simpleMessage("Eine Galerie mit dem Namen existiert bereits"),
+    "editGalleryName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "editGalleryNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
+    "editGalleryNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht genug Rechte"),
+    "editGalleryOrientation" : MessageLookupByLibrary.simpleMessage("Orientierung"),
+    "editGalleryOrientationHorizontal" : MessageLookupByLibrary.simpleMessage("Horizontal"),
+    "editGalleryOrientationVertical" : MessageLookupByLibrary.simpleMessage("Vertikal"),
+    "editGalleryType" : MessageLookupByLibrary.simpleMessage("Typ"),
+    "editGalleryTypeMasonry" : MessageLookupByLibrary.simpleMessage("Raster"),
+    "editGalleryTypeSequence" : MessageLookupByLibrary.simpleMessage("Liste"),
     "manageAccountsDeleteSuccess" : m0,
     "manageMediaFiles" : MessageLookupByLibrary.simpleMessage("Dateien"),
     "manageMediaFilesDeleteConflict" : m1,
@@ -51,6 +71,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "manageMediaFilesDeleteSuccess" : m3,
     "manageMediaFilesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Datei wirklich löschen?"),
     "manageMediaFilesDeleteUnknown" : m4,
+    "manageMediaGalleries" : MessageLookupByLibrary.simpleMessage("Galerien"),
+    "manageMediaGalleriesDeleteConflict" : m5,
+    "manageMediaGalleriesDeleteContent" : m6,
+    "manageMediaGalleriesDeleteSuccess" : m7,
+    "manageMediaGalleriesDeleteTitle" : MessageLookupByLibrary.simpleMessage("Galerie wirklich löschen?"),
+    "manageMediaGalleriesDeleteUnknown" : m8,
     "manageMediaTitle" : MessageLookupByLibrary.simpleMessage("Medienverwaltung"),
     "menuAddAccount" : MessageLookupByLibrary.simpleMessage("Account hinzufügen"),
     "menuArtists" : MessageLookupByLibrary.simpleMessage("Künstler"),
@@ -59,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "menuMedia" : MessageLookupByLibrary.simpleMessage("Medien"),
     "menuMenus" : MessageLookupByLibrary.simpleMessage("Menüs"),
     "menuPages" : MessageLookupByLibrary.simpleMessage("Seiten"),
-    "menuSwitchAccount" : m5,
+    "menuSwitchAccount" : m9,
     "menuThemes" : MessageLookupByLibrary.simpleMessage("Themes"),
     "newAccountActionTwoFactorCode" : MessageLookupByLibrary.simpleMessage("ZWEI FAKTOR CODE ANFORDERN"),
     "newAccountErrorExists" : MessageLookupByLibrary.simpleMessage("Ein Account mit dieser Emailadresse ist bereits für diesen Host eingerichtet eingerichtet"),
@@ -80,6 +106,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "newFileName" : MessageLookupByLibrary.simpleMessage("Name"),
     "newFileNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
     "newFileNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht die nötigen Rechte."),
-    "newFileTitle" : MessageLookupByLibrary.simpleMessage("Neue Datei")
+    "newFileTitle" : MessageLookupByLibrary.simpleMessage("Neue Datei"),
+    "newGalleryActionCreate" : MessageLookupByLibrary.simpleMessage("Galerie erstellen"),
+    "newGalleryDescription" : MessageLookupByLibrary.simpleMessage("Beschreibung"),
+    "newGalleryExistsError" : MessageLookupByLibrary.simpleMessage("Eine Galerie mit dem Namen existiert bereits"),
+    "newGalleryName" : MessageLookupByLibrary.simpleMessage("Name"),
+    "newGalleryNameEmpty" : MessageLookupByLibrary.simpleMessage("Bitte gib einen Namen ein"),
+    "newGalleryNotEnoughPermissionsError" : MessageLookupByLibrary.simpleMessage("Du hast nicht genug Rechte"),
+    "newGalleryOrientation" : MessageLookupByLibrary.simpleMessage("Orientierung"),
+    "newGalleryOrientationHorizontal" : MessageLookupByLibrary.simpleMessage("Horizontal"),
+    "newGalleryOrientationVertical" : MessageLookupByLibrary.simpleMessage("Vertikal"),
+    "newGalleryTitle" : MessageLookupByLibrary.simpleMessage("Neue Galerie"),
+    "newGalleryType" : MessageLookupByLibrary.simpleMessage("Typ"),
+    "newGalleryTypeMasonry" : MessageLookupByLibrary.simpleMessage("Raster"),
+    "newGalleryTypeSequence" : MessageLookupByLibrary.simpleMessage("Liste")
   };
 }

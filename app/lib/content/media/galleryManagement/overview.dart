@@ -1,40 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:jinya_app/content/media/fileManagement/fileDetailsPage.dart';
-import 'package:jinya_app/content/media/fileManagement/newFile.dart';
+import 'package:jinya_app/content/media/galleryManagement/newGallery.dart';
 import 'package:jinya_app/localizations.dart';
 import 'package:jinya_app/network/errors/ConflictException.dart';
-import 'package:jinya_app/network/media/files.dart';
-import 'package:jinya_app/shared/currentUser.dart';
+import 'package:jinya_app/network/media/galleries.dart';
 
-class FilesOverviewWidget extends StatefulWidget {
+class GalleriesOverviewWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return FilesOverviewWidgetState();
+    return GalleriesOverviewWidgetState();
   }
 }
 
-class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
-  var files = List<File>();
+class GalleriesOverviewWidgetState extends State<GalleriesOverviewWidget> {
+  var galleries = List<Gallery>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void loadFiles() async {
-    final fileList = await getFiles();
+  void loadGalleries() async {
+    final galleryList = await getGalleries();
     setState(() {
-      files = fileList;
+      galleries = galleryList;
     });
   }
 
   Future<void> refreshList() async {
-    final fileList = await getFiles();
+    final galleryList = await getGalleries();
     setState(() {
-      files = fileList;
+      galleries = galleryList;
     });
   }
 
   @override
   void initState() {
     super.initState();
-    loadFiles();
+    loadGalleries();
   }
 
   @override
@@ -48,7 +46,7 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
           onRefresh: refreshList,
           child: ListView.separated(
             physics: const AlwaysScrollableScrollPhysics(),
-            itemCount: files.length,
+            itemCount: galleries.length,
             padding: EdgeInsets.symmetric(vertical: 8.0),
             itemBuilder: (context, index) => Dismissible(
               background: Container(
@@ -70,9 +68,11 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
                   barrierDismissible: true,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: Text(l10n.manageMediaFilesDeleteTitle),
+                      title: Text(l10n.manageMediaGalleriesDeleteTitle),
                       content: Text(
-                        l10n.manageMediaFilesDeleteContent(files[index].name),
+                        l10n.manageMediaGalleriesDeleteContent(
+                          galleries[index].name,
+                        ),
                       ),
                       actions: <Widget>[
                         FlatButton(
@@ -100,37 +100,37 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
                   },
                 );
               },
-              key: Key(files[index].id.toString()),
+              key: Key(galleries[index].slug),
               onDismissed: (direction) async {
-                final file = files[index];
+                final gallery = galleries[index];
                 setState(() {
-                  files.removeAt(index);
+                  galleries.removeAt(index);
                 });
                 try {
-                  await deleteFile(file.id);
+                  await deleteGallery(gallery.slug);
                   final snackbar = SnackBar(
                     content: Text(
-                      l10n.manageMediaFilesDeleteSuccess(file.name),
+                      l10n.manageMediaGalleriesDeleteSuccess(gallery.name),
                     ),
                   );
                   scaffoldKey.currentState.showSnackBar(snackbar);
                 } on ConflictException {
                   setState(() {
-                    files.insert(index, file);
+                    galleries.insert(index, gallery);
                   });
                   final snackbar = SnackBar(
                     content: Text(
-                      l10n.manageMediaFilesDeleteConflict(file.name),
+                      l10n.manageMediaGalleriesDeleteConflict(gallery.name),
                     ),
                   );
                   scaffoldKey.currentState.showSnackBar(snackbar);
                 } catch (e) {
                   setState(() {
-                    files.insert(index, file);
+                    galleries.insert(index, gallery);
                   });
                   final snackbar = SnackBar(
                     content: Text(
-                      l10n.manageMediaFilesDeleteUnknown(file.name),
+                      l10n.manageMediaGalleriesDeleteUnknown(gallery.name),
                     ),
                   );
                   scaffoldKey.currentState.showSnackBar(snackbar);
@@ -138,37 +138,27 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
               },
               child: ListTile(
                 onTap: () async {
-                  final reload = await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => FileDetailsPage(files[index]),
-                    ),
-                  );
-
-                  if (reload is bool && reload) {
-                    loadFiles();
-                  }
+//                  final reload = await Navigator.of(context).push(
+//                    MaterialPageRoute(
+//                      builder: (context) =>
+//                          GalleryDetailsPage(galleries[index]),
+//                    ),
+//                  );
+//
+//                  if (reload is bool && reload) {
+//                    loadGalleries();
+//                  }
                 },
-                title: Text(files[index].name),
+                title: Text(galleries[index].name),
                 subtitle: Text(
-                  '${files[index].name}',
-                ),
-                leading: Container(
-                  width: 72,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        '${SettingsDatabase.selectedAccount.url}/${files[index].path}',
-                      ),
-                    ),
-                  ),
+                  '${galleries[index].description}',
                 ),
               ),
               direction: DismissDirection.endToStart,
             ),
             separatorBuilder: (BuildContext context, int index) => Padding(
               padding: EdgeInsets.only(
-                left: 104,
+                left: 16,
                 right: 16,
               ),
               child: Divider(
@@ -183,12 +173,12 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
         onPressed: () async {
           final reload = await Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => NewFilePage(),
+              builder: (context) => NewGalleryPage(),
             ),
           );
 
           if (reload is bool && reload) {
-            await loadFiles();
+            loadGalleries();
           }
         },
       ),

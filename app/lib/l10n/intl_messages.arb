@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2020-04-01T22:19:02.233663",
+  "@@last_modified": "2020-04-04T00:09:10.973308",
   "appName": "Jinya CMS",
   "@appName": {
     "type": "text",
@@ -159,6 +159,11 @@
     "type": "text",
     "placeholders": {}
   },
+  "manageMediaGalleries": "Galleries",
+  "@manageMediaGalleries": {
+    "type": "text",
+    "placeholders": {}
+  },
   "manageMediaFilesDeleteTitle": "Really delete file?",
   "@manageMediaFilesDeleteTitle": {
     "type": "text",
@@ -257,6 +262,124 @@
     "type": "text",
     "placeholders": {}
   },
+  "manageMediaGalleriesDeleteTitle": "Really delete gallery?",
+  "@manageMediaGalleriesDeleteTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaGalleriesDeleteContent": "Do you want to delete the gallery {name}? It will be removed from all galleries.",
+  "@manageMediaGalleriesDeleteContent": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteSuccess": "Successfully deleted {name}",
+  "@manageMediaGalleriesDeleteSuccess": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteConflict": "{name} cannot be deleted, cause it is in use.",
+  "@manageMediaGalleriesDeleteConflict": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteUnknown": "Failed to delete {name}",
+  "@manageMediaGalleriesDeleteUnknown": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "newGalleryTitle": "New Gallery",
+  "@newGalleryTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryNameEmpty": "Please provide a name",
+  "@newGalleryNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryName": "Name",
+  "@newGalleryName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryDescription": "Description",
+  "@newGalleryDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientation": "Orientation",
+  "@newGalleryOrientation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryType": "Type",
+  "@newGalleryType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryActionCreate": "Create gallery",
+  "@newGalleryActionCreate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryNotEnoughPermissionsError": "You don't have enough permissions",
+  "@newGalleryNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryExistsError": "A gallery with that name already exists",
+  "@newGalleryExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryNameEmpty": "Please provide a name",
+  "@editGalleryNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryName": "Name",
+  "@editGalleryName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryDescription": "Description",
+  "@editGalleryDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientation": "Orientation",
+  "@editGalleryOrientation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryType": "Type",
+  "@editGalleryType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryActionUpdate": "Update gallery",
+  "@editGalleryActionUpdate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryNotEnoughPermissionsError": "You don't have enough permissions",
+  "@editGalleryNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryExistsError": "A gallery with that name already exists",
+  "@editGalleryExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
   "loginInvalidCredentials": "Invalid credentials",
   "@loginInvalidCredentials": {
     "type": "text",
@@ -284,6 +407,46 @@
   },
   "loginActionLogin": "Login",
   "@loginActionLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryTypeMasonry": "Masonry",
+  "@newGalleryTypeMasonry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryTypeSequence": "Sequence",
+  "@newGalleryTypeSequence": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientationVertical": "Vertical",
+  "@newGalleryOrientationVertical": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientationHorizontal": "Horizontal",
+  "@newGalleryOrientationHorizontal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryTypeMasonry": "Masonry",
+  "@editGalleryTypeMasonry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryTypeSequence": "Sequence",
+  "@editGalleryTypeSequence": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientationVertical": "Vertical",
+  "@editGalleryOrientationVertical": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientationHorizontal": "Horizontal",
+  "@editGalleryOrientationHorizontal": {
     "type": "text",
     "placeholders": {}
   }

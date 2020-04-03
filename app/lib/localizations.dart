@@ -269,6 +269,14 @@ class JinyaLocalizations {
     );
   }
 
+  String get manageMediaGalleries {
+    return Intl.message(
+      'Galleries',
+      name: 'manageMediaGalleries',
+      locale: localeName,
+    );
+  }
+
   String get manageMediaFilesDeleteTitle {
     return Intl.message(
       'Really delete file?',
@@ -417,6 +425,186 @@ class JinyaLocalizations {
     );
   }
 
+  String get manageMediaGalleriesDeleteTitle {
+    return Intl.message(
+      'Really delete gallery?',
+      name: 'manageMediaGalleriesDeleteTitle',
+      locale: localeName,
+    );
+  }
+
+  String manageMediaGalleriesDeleteContent(name) {
+    return Intl.message(
+      'Do you want to delete the gallery $name? It will be removed from all galleries.',
+      name: 'manageMediaGalleriesDeleteContent',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteSuccess(name) {
+    return Intl.message(
+      'Successfully deleted $name',
+      name: 'manageMediaGalleriesDeleteSuccess',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteConflict(name) {
+    return Intl.message(
+      '$name cannot be deleted, cause it is in use.',
+      name: 'manageMediaGalleriesDeleteConflict',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteUnknown(name) {
+    return Intl.message(
+      'Failed to delete $name',
+      name: 'manageMediaGalleriesDeleteUnknown',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String get newGalleryTitle {
+    return Intl.message(
+      'New Gallery',
+      name: 'newGalleryTitle',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryNameEmpty {
+    return Intl.message(
+      'Please provide a name',
+      name: 'newGalleryNameEmpty',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryName {
+    return Intl.message(
+      'Name',
+      name: 'newGalleryName',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryDescription {
+    return Intl.message(
+      'Description',
+      name: 'newGalleryDescription',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryOrientation {
+    return Intl.message(
+      'Orientation',
+      name: 'newGalleryOrientation',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryType {
+    return Intl.message(
+      'Type',
+      name: 'newGalleryType',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryActionCreate {
+    return Intl.message(
+      'Create gallery',
+      name: 'newGalleryActionCreate',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryNotEnoughPermissionsError {
+    return Intl.message(
+      'You don\'t have enough permissions',
+      name: 'newGalleryNotEnoughPermissionsError',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryExistsError {
+    return Intl.message(
+      'A gallery with that name already exists',
+      name: 'newGalleryExistsError',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryNameEmpty {
+    return Intl.message(
+      'Please provide a name',
+      name: 'editGalleryNameEmpty',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryName {
+    return Intl.message(
+      'Name',
+      name: 'editGalleryName',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryDescription {
+    return Intl.message(
+      'Description',
+      name: 'editGalleryDescription',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryOrientation {
+    return Intl.message(
+      'Orientation',
+      name: 'editGalleryOrientation',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryType {
+    return Intl.message(
+      'Type',
+      name: 'editGalleryType',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryActionUpdate {
+    return Intl.message(
+      'Update gallery',
+      name: 'editGalleryActionUpdate',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryNotEnoughPermissionsError {
+    return Intl.message(
+      'You don\'t have enough permissions',
+      name: 'editGalleryNotEnoughPermissionsError',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryExistsError {
+    return Intl.message(
+      'A gallery with that name already exists',
+      name: 'editGalleryExistsError',
+      locale: localeName,
+    );
+  }
+
   String get loginInvalidCredentials {
     return Intl.message(
       'Invalid credentials',
@@ -461,6 +649,70 @@ class JinyaLocalizations {
     return Intl.message(
       'Login',
       name: 'loginActionLogin',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryTypeMasonry {
+    return Intl.message(
+      'Masonry',
+      name: 'newGalleryTypeMasonry',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryTypeSequence {
+    return Intl.message(
+      'Sequence',
+      name: 'newGalleryTypeSequence',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryOrientationVertical {
+    return Intl.message(
+      'Vertical',
+      name: 'newGalleryOrientationVertical',
+      locale: localeName,
+    );
+  }
+
+  String get newGalleryOrientationHorizontal {
+    return Intl.message(
+      'Horizontal',
+      name: 'newGalleryOrientationHorizontal',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryTypeMasonry {
+    return Intl.message(
+      'Masonry',
+      name: 'editGalleryTypeMasonry',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryTypeSequence {
+    return Intl.message(
+      'Sequence',
+      name: 'editGalleryTypeSequence',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryOrientationVertical {
+    return Intl.message(
+      'Vertical',
+      name: 'editGalleryOrientationVertical',
+      locale: localeName,
+    );
+  }
+
+  String get editGalleryOrientationHorizontal {
+    return Intl.message(
+      'Horizontal',
+      name: 'editGalleryOrientationHorizontal',
       locale: localeName,
     );
   }

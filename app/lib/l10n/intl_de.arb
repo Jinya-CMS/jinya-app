@@ -251,5 +251,168 @@
   "@editFileExistsError": {
     "type": "text",
     "placeholders": {}
+  },
+  "manageMediaGalleries": "Galerien",
+  "@manageMediaGalleries": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaGalleriesDeleteTitle": "Galerie wirklich löschen?",
+  "@manageMediaGalleriesDeleteTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageMediaGalleriesDeleteContent": "Soll die Galerie {name} wirklich gelöscht werden?",
+  "@manageMediaGalleriesDeleteContent": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteSuccess": "{name} erfolgreich gelöscht",
+  "@manageMediaGalleriesDeleteSuccess": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteConflict": "Die Galerie {name} kann nicht gelöscht werden, da sie verwendet wird.",
+  "@manageMediaGalleriesDeleteConflict": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "manageMediaGalleriesDeleteUnknown": "Löschen von Galerie {name} fehlgeschlagen",
+  "@manageMediaGalleriesDeleteUnknown": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  },
+  "newGalleryTitle": "Neue Galerie",
+  "@newGalleryTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryNameEmpty": "Bitte gib einen Namen ein",
+  "@newGalleryNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryName": "Name",
+  "@newGalleryName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryDescription": "Beschreibung",
+  "@newGalleryDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientation": "Orientierung",
+  "@newGalleryOrientation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryType": "Typ",
+  "@newGalleryType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryActionCreate": "Galerie erstellen",
+  "@newGalleryActionCreate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryNotEnoughPermissionsError": "Du hast nicht genug Rechte",
+  "@newGalleryNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryExistsError": "Eine Galerie mit dem Namen existiert bereits",
+  "@newGalleryExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryNameEmpty": "Bitte gib einen Namen ein",
+  "@editGalleryNameEmpty": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryName": "Name",
+  "@editGalleryName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryDescription": "Beschreibung",
+  "@editGalleryDescription": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientation": "Orientierung",
+  "@editGalleryOrientation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryType": "Typ",
+  "@editGalleryType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryActionUpdate": "Galerie speichern",
+  "@editGalleryActionUpdate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryNotEnoughPermissionsError": "Du hast nicht genug Rechte",
+  "@editGalleryNotEnoughPermissionsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryExistsError": "Eine Galerie mit dem Namen existiert bereits",
+  "@editGalleryExistsError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryTypeMasonry": "Raster",
+  "@newGalleryTypeMasonry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryTypeSequence": "Liste",
+  "@newGalleryTypeSequence": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientationVertical": "Vertikal",
+  "@newGalleryOrientationVertical": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "newGalleryOrientationHorizontal": "Horizontal",
+  "@newGalleryOrientationHorizontal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryTypeMasonry": "Raster",
+  "@editGalleryTypeMasonry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryTypeSequence": "Liste",
+  "@editGalleryTypeSequence": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientationVertical": "Vertikal",
+  "@editGalleryOrientationVertical": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "editGalleryOrientationHorizontal": "Horizontal",
+  "@editGalleryOrientationHorizontal": {
+    "type": "text",
+    "placeholders": {}
   }
 }
