@@ -425,50 +425,6 @@ class JinyaLocalizations {
     );
   }
 
-  String get manageMediaGalleriesDeleteTitle {
-    return Intl.message(
-      'Really delete gallery?',
-      name: 'manageMediaGalleriesDeleteTitle',
-      locale: localeName,
-    );
-  }
-
-  String manageMediaGalleriesDeleteContent(name) {
-    return Intl.message(
-      'Do you want to delete the gallery $name? It will be removed from all galleries.',
-      name: 'manageMediaGalleriesDeleteContent',
-      locale: localeName,
-      args: [name],
-    );
-  }
-
-  String manageMediaGalleriesDeleteSuccess(name) {
-    return Intl.message(
-      'Successfully deleted $name',
-      name: 'manageMediaGalleriesDeleteSuccess',
-      locale: localeName,
-      args: [name],
-    );
-  }
-
-  String manageMediaGalleriesDeleteConflict(name) {
-    return Intl.message(
-      '$name cannot be deleted, cause it is in use.',
-      name: 'manageMediaGalleriesDeleteConflict',
-      locale: localeName,
-      args: [name],
-    );
-  }
-
-  String manageMediaGalleriesDeleteUnknown(name) {
-    return Intl.message(
-      'Failed to delete $name',
-      name: 'manageMediaGalleriesDeleteUnknown',
-      locale: localeName,
-      args: [name],
-    );
-  }
-
   String get newGalleryTitle {
     return Intl.message(
       'New Gallery',
@@ -713,6 +669,106 @@ class JinyaLocalizations {
     return Intl.message(
       'Horizontal',
       name: 'editGalleryOrientationHorizontal',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesOrientation {
+    return Intl.message(
+      'Orientation',
+      name: 'manageGalleriesOrientation',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesType {
+    return Intl.message(
+      'Type',
+      name: 'manageGalleriesType',
+      locale: localeName,
+    );
+  }
+
+  String get manageMediaGalleriesDeleteTitle {
+    return Intl.message(
+      'Really delete gallery?',
+      name: 'manageMediaGalleriesDeleteTitle',
+      locale: localeName,
+    );
+  }
+
+  String manageMediaGalleriesDeleteContent(name) {
+    return Intl.message(
+      'Do you want to delete the gallery $name? It will be removed from all galleries.',
+      name: 'manageMediaGalleriesDeleteContent',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteSuccess(name) {
+    return Intl.message(
+      'Successfully deleted $name',
+      name: 'manageMediaGalleriesDeleteSuccess',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteConflict(name) {
+    return Intl.message(
+      '$name cannot be deleted, cause it is in use.',
+      name: 'manageMediaGalleriesDeleteConflict',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String manageMediaGalleriesDeleteUnknown(name) {
+    return Intl.message(
+      'Failed to delete $name',
+      name: 'manageMediaGalleriesDeleteUnknown',
+      locale: localeName,
+      args: [name],
+    );
+  }
+
+  String get manageGalleriesTypeMasonry {
+    return Intl.message(
+      'Masonry',
+      name: 'manageGalleriesTypeMasonry',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesTypeSequence {
+    return Intl.message(
+      'Sequence',
+      name: 'manageGalleriesTypeSequence',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesOrientationVertical {
+    return Intl.message(
+      'Vertical',
+      name: 'manageGalleriesOrientationVertical',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesOrientationHorizontal {
+    return Intl.message(
+      'Horizontal',
+      name: 'manageGalleriesOrientationHorizontal',
+      locale: localeName,
+    );
+  }
+
+  String get manageGalleriesActionDesigner {
+    return Intl.message(
+      'Designer',
+      name: 'manageGalleriesActionDesigner',
       locale: localeName,
     );
   }

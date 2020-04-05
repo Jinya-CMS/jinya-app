@@ -414,5 +414,40 @@
   "@editGalleryOrientationHorizontal": {
     "type": "text",
     "placeholders": {}
+  },
+  "manageGalleriesOrientation": "Orientierung",
+  "@manageGalleriesOrientation": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesType": "Typ",
+  "@manageGalleriesType": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesTypeMasonry": "Raster",
+  "@manageGalleriesTypeMasonry": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesTypeSequence": "Liste",
+  "@manageGalleriesTypeSequence": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesOrientationVertical": "Vertikal",
+  "@manageGalleriesOrientationVertical": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesOrientationHorizontal": "Horizontal",
+  "@manageGalleriesOrientationHorizontal": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageGalleriesActionDesigner": "Designer",
+  "@manageGalleriesActionDesigner": {
+    "type": "text",
+    "placeholders": {}
   }
 }

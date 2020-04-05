@@ -7,12 +7,16 @@ import 'package:jinya_app/network/errors/ConflictException.dart';
 import 'package:jinya_app/network/errors/NotEnoughPermissionsException.dart';
 import 'package:jinya_app/network/media/galleries.dart' as network;
 
-class NewGalleryPage extends StatefulWidget {
+class EditGalleryPage extends StatefulWidget {
+  network.Gallery _gallery;
+
   @override
-  State<StatefulWidget> createState() => NewGalleryPageState();
+  State<StatefulWidget> createState() => EditGalleryPageState(_gallery);
+
+  EditGalleryPage(this._gallery);
 }
 
-class NewGalleryPageState extends State<NewGalleryPage> {
+class EditGalleryPageState extends State<EditGalleryPage> {
   final _nameController = TextEditingController();
   final _descriptionController = TextEditingController();
   network.Type _type = network.Type.sequence;
@@ -20,11 +24,20 @@ class NewGalleryPageState extends State<NewGalleryPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   JinyaLocalizations l10n;
+  network.Gallery _gallery;
 
-  Future<void> createGallery() async {
+  EditGalleryPageState(this._gallery) {
+    _type = _gallery.type;
+    _orientation = _gallery.orientation;
+    _descriptionController.text = _gallery.description;
+    _nameController.text = _gallery.name;
+  }
+
+  Future<void> updateGallery() async {
     try {
-      await network.createGallery(
-        _nameController.text,
+      await network.updateGallery(
+        _gallery.slug,
+        name: _nameController.text,
         description: _descriptionController.text,
         type: _type,
         orientation: _orientation,
@@ -35,10 +48,10 @@ class NewGalleryPageState extends State<NewGalleryPage> {
       ));
     } on ConflictException {
       _scaffoldKey.currentState
-          .showSnackBar(SnackBar(content: Text(l10n.newGalleryExistsError)));
+          .showSnackBar(SnackBar(content: Text(l10n.editGalleryExistsError)));
     } on NotEnoughPermissionsException {
       _scaffoldKey.currentState.showSnackBar(
-          SnackBar(content: Text(l10n.newGalleryNotEnoughPermissionsError)));
+          SnackBar(content: Text(l10n.editGalleryNotEnoughPermissionsError)));
     } catch (e) {
       _scaffoldKey.currentState
           .showSnackBar(SnackBar(content: Text(e.toString())));
@@ -52,7 +65,7 @@ class NewGalleryPageState extends State<NewGalleryPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(l10n.newGalleryTitle),
+        title: Text(_gallery.name),
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -73,17 +86,17 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                   controller: _nameController,
                   autovalidate: true,
                   keyboardType: TextInputType.text,
-                  autocorrect: true,
                   textCapitalization: TextCapitalization.words,
+                  autocorrect: true,
                   validator: (value) {
                     if (value == '' && value == null) {
-                      return l10n.newGalleryNameEmpty;
+                      return l10n.editGalleryNameEmpty;
                     }
 
                     return null;
                   },
                   decoration: InputDecoration(
-                    labelText: l10n.newGalleryName,
+                    labelText: l10n.editGalleryName,
                   ),
                 ),
                 Padding(
@@ -97,13 +110,13 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            l10n.newGalleryOrientation,
+                            l10n.editGalleryOrientation,
                             style: Theme.of(context).textTheme.caption,
                           ),
                         ],
                       ),
                       LabeledRadio(
-                        label: l10n.newGalleryOrientationVertical,
+                        label: l10n.editGalleryOrientationVertical,
                         value: network.Orientation.vertical,
                         groupValue: _orientation,
                         onChanged: (value) {
@@ -113,7 +126,7 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                         },
                       ),
                       LabeledRadio(
-                        label: l10n.newGalleryOrientationHorizontal,
+                        label: l10n.editGalleryOrientationHorizontal,
                         value: network.Orientation.horizontal,
                         groupValue: _orientation,
                         onChanged: (value) {
@@ -132,13 +145,13 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          l10n.newGalleryType,
+                          l10n.editGalleryType,
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],
                     ),
                     LabeledRadio(
-                      label: l10n.newGalleryTypeMasonry,
+                      label: l10n.editGalleryTypeMasonry,
                       value: network.Type.masonry,
                       groupValue: _type,
                       onChanged: (value) {
@@ -148,7 +161,7 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                       },
                     ),
                     LabeledRadio(
-                      label: l10n.newGalleryTypeSequence,
+                      label: l10n.editGalleryTypeSequence,
                       value: network.Type.sequence,
                       groupValue: _type,
                       onChanged: (value) {
@@ -165,7 +178,7 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                   autocorrect: true,
                   maxLines: null,
                   decoration: InputDecoration(
-                    labelText: l10n.newGalleryDescription,
+                    labelText: l10n.editGalleryDescription,
                   ),
                 ),
                 Padding(
@@ -174,10 +187,10 @@ class NewGalleryPageState extends State<NewGalleryPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       RaisedButton(
-                        onPressed: createGallery,
+                        onPressed: updateGallery,
                         color: Theme.of(context).primaryColor,
                         textColor: Color(0xFFFFFFFF),
-                        child: Text(l10n.newGalleryActionCreate),
+                        child: Text(l10n.editGalleryActionUpdate),
                       ),
                     ],
                   ),

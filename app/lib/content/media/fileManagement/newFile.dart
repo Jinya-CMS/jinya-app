@@ -84,8 +84,8 @@ class NewFilePageState extends State<NewFilePage> {
               TextFormField(
                 controller: _nameController,
                 autovalidate: true,
-                keyboardType: TextInputType.url,
-                autocorrect: false,
+                keyboardType: TextInputType.text,
+                autocorrect: true,
                 validator: (value) {
                   if (value == '' && value == null) {
                     return l10n.newFileNameEmpty;

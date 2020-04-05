@@ -1,10 +1,14 @@
+import 'package:chewie/chewie.dart';
+import 'package:chewie_audio/chewie_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:jinya_app/content/media/fileManagement/fileDetailsPage.dart';
+import 'package:flutter/widgets.dart';
+import 'package:jinya_app/content/media/fileManagement/editFile.dart';
 import 'package:jinya_app/content/media/fileManagement/newFile.dart';
 import 'package:jinya_app/localizations.dart';
 import 'package:jinya_app/network/errors/ConflictException.dart';
 import 'package:jinya_app/network/media/files.dart';
 import 'package:jinya_app/shared/currentUser.dart';
+import 'package:video_player/video_player.dart';
 
 class FilesOverviewWidget extends StatefulWidget {
   @override
@@ -16,6 +20,24 @@ class FilesOverviewWidget extends StatefulWidget {
 class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
   var files = List<File>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final List<ChewieAudioController> _audioControllers = [];
+  final List<VideoPlayerController> _videoControllers = [];
+  final List<ChewieController> _chewieControllers = [];
+  JinyaLocalizations l10n;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _audioControllers.forEach((element) {
+      element?.dispose();
+    });
+    _chewieControllers.forEach((element) {
+      element?.dispose();
+    });
+    _videoControllers.forEach((element) {
+      element?.dispose();
+    });
+  }
 
   void loadFiles() async {
     final fileList = await getFiles();
@@ -37,75 +59,112 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
     loadFiles();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final l10n = JinyaLocalizations.of(context);
+  Card _getCard(File file) {
+    final column = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[],
+    );
 
-    return Scaffold(
-      key: scaffoldKey,
-      body: Scrollbar(
-        child: RefreshIndicator(
-          onRefresh: refreshList,
-          child: ListView.separated(
-            physics: const AlwaysScrollableScrollPhysics(),
-            itemCount: files.length,
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            itemBuilder: (context, index) => Dismissible(
-              background: Container(
-                color: Theme.of(context).errorColor,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    child: Icon(
-                      Icons.delete,
-                      color: Colors.white,
-                    ),
-                    padding: EdgeInsets.only(right: 16.0),
-                  ),
+    if (file.type.startsWith('image/')) {
+      column.children.add(Image.network(
+        '${SettingsDatabase.selectedAccount.url}/${file.path}',
+      ));
+    } else if (file.type.startsWith('video/')) {
+      final videoPlayerController = VideoPlayerController.network(
+          '${SettingsDatabase.selectedAccount.url}/${file.path}');
+
+      final chewieController = ChewieController(
+        videoPlayerController: videoPlayerController,
+        autoInitialize: true,
+        aspectRatio: 1.77,
+      );
+      _chewieControllers.add(chewieController);
+
+      column.children.add(Chewie(
+        controller: chewieController,
+      ));
+    } else if (file.type.startsWith('audio/')) {
+      final videoPlayerController = VideoPlayerController.network(
+        '${SettingsDatabase.selectedAccount.url}/${file.path}',
+      );
+
+      final chewieAudioController = ChewieAudioController(
+        videoPlayerController: videoPlayerController,
+        autoInitialize: true,
+      );
+
+      column.children.add(
+        ChewieAudio(
+          controller: chewieAudioController,
+        ),
+      );
+    }
+
+    column.children.add(
+      Padding(
+        padding: EdgeInsets.all(16),
+        child: Text(
+          file.name,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+      ),
+    );
+    column.children.add(
+      ButtonBar(
+        children: <Widget>[
+          FlatButton(
+            onPressed: () async {
+              final reload = await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => EditFilePage(file),
                 ),
-              ),
-              confirmDismiss: (direction) async {
-                return showDialog<bool>(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text(l10n.manageMediaFilesDeleteTitle),
-                      content: Text(
-                        l10n.manageMediaFilesDeleteContent(files[index].name),
+              );
+
+              if (reload is bool && reload) {
+                loadFiles();
+              }
+            },
+            child: Text(l10n.actionEdit.toUpperCase()),
+            textColor: Theme.of(context).accentColor,
+          ),
+          FlatButton(
+            onPressed: () async {
+              final result = await showDialog<bool>(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text(l10n.manageMediaFilesDeleteTitle),
+                    content: Text(
+                      l10n.manageMediaFilesDeleteContent(file.name),
+                    ),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text(l10n.actionDontDelete.toUpperCase()),
+                        textColor: Theme.of(context).accentColor,
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                            false,
+                          );
+                        },
                       ),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text(l10n.actionDontDelete.toUpperCase()),
-                          textColor: Theme.of(context).accentColor,
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                              false,
-                            );
-                          },
-                        ),
-                        FlatButton(
-                          child: Text(l10n.actionDelete.toUpperCase()),
-                          textColor: Theme.of(context).errorColor,
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                              true,
-                            );
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              key: Key(files[index].id.toString()),
-              onDismissed: (direction) async {
-                final file = files[index];
-                setState(() {
-                  files.removeAt(index);
-                });
+                      FlatButton(
+                        child: Text(l10n.actionDelete.toUpperCase()),
+                        textColor: Theme.of(context).errorColor,
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                            true,
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+
+              if (result) {
                 try {
                   await deleteFile(file.id);
                   final snackbar = SnackBar(
@@ -113,11 +172,11 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
                       l10n.manageMediaFilesDeleteSuccess(file.name),
                     ),
                   );
+                  setState(() {
+                    files.remove(file);
+                  });
                   scaffoldKey.currentState.showSnackBar(snackbar);
                 } on ConflictException {
-                  setState(() {
-                    files.insert(index, file);
-                  });
                   final snackbar = SnackBar(
                     content: Text(
                       l10n.manageMediaFilesDeleteConflict(file.name),
@@ -125,9 +184,6 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
                   );
                   scaffoldKey.currentState.showSnackBar(snackbar);
                 } catch (e) {
-                  setState(() {
-                    files.insert(index, file);
-                  });
                   final snackbar = SnackBar(
                     content: Text(
                       l10n.manageMediaFilesDeleteUnknown(file.name),
@@ -135,44 +191,49 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
                   );
                   scaffoldKey.currentState.showSnackBar(snackbar);
                 }
-              },
-              child: ListTile(
-                onTap: () async {
-                  final reload = await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => FileDetailsPage(files[index]),
-                    ),
-                  );
+              }
+            },
+            child: Text(l10n.actionDelete.toUpperCase()),
+            textColor: Theme.of(context).errorColor,
+          ),
+        ],
+      ),
+    );
 
-                  if (reload is bool && reload) {
-                    loadFiles();
-                  }
-                },
-                title: Text(files[index].name),
-                subtitle: Text(
-                  '${files[index].name}',
-                ),
-                leading: Container(
-                  width: 72,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        '${SettingsDatabase.selectedAccount.url}/${files[index].path}',
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              direction: DismissDirection.endToStart,
-            ),
-            separatorBuilder: (BuildContext context, int index) => Padding(
+    return Card(
+      elevation: 8,
+      clipBehavior: Clip.antiAlias,
+      child: column,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    l10n = JinyaLocalizations.of(context);
+
+    return Scaffold(
+      key: scaffoldKey,
+      body: Scrollbar(
+        child: RefreshIndicator(
+          onRefresh: refreshList,
+          child: ListView.builder(
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemCount: files.length,
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            itemBuilder: (context, index) => Padding(
+              key: Key(files[index].id.toString()),
               padding: EdgeInsets.only(
-                left: 104,
+                left: 16,
                 right: 16,
+                top: 16,
               ),
-              child: Divider(
-                color: Theme.of(context).primaryColor,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    width: double.infinity,
+                    child: _getCard(files[index]),
+                  ),
+                ],
               ),
             ),
           ),

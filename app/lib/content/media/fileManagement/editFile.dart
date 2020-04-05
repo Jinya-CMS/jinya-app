@@ -94,8 +94,8 @@ class EditFilePageState extends State<EditFilePage> {
               TextFormField(
                 controller: _nameController,
                 autovalidate: true,
-                keyboardType: TextInputType.url,
-                autocorrect: false,
+                keyboardType: TextInputType.text,
+                autocorrect: true,
                 validator: (value) {
                   if (value == '' && value == null) {
                     return l10n.editFileNameEmpty;
