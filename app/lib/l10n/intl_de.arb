@@ -449,5 +449,10 @@
   "@manageGalleriesActionDesigner": {
     "type": "text",
     "placeholders": {}
+  },
+  "manageGalleriesDesignerAddFile": "Datei einfügen",
+  "@manageGalleriesDesignerAddFile": {
+    "type": "text",
+    "placeholders": {}
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:jinya_app/network/base/jinyaRequest.dart';
+import 'package:jinya_app/network/media/files.dart' as media;
 
 enum Orientation { horizontal, vertical }
 
@@ -26,6 +27,21 @@ class Gallery {
             ? Orientation.horizontal
             : Orientation.vertical,
         map['type'] == 'masonry' ? Type.masonry : Type.sequence,
+      );
+}
+
+class GalleryFilePosition {
+  int id;
+  int position;
+  media.File file;
+
+  GalleryFilePosition(this.id, this.position, this.file);
+
+  factory GalleryFilePosition.fromMap(Map<String, dynamic> map) =>
+      GalleryFilePosition(
+        map['id'],
+        map['position'],
+        media.File.fromMap(map['file']),
       );
 }
 
@@ -100,4 +116,60 @@ Future<Gallery> getGallery(String slug) async {
   }
 
   return Gallery.fromMap(response.data);
+}
+
+Future<List<GalleryFilePosition>> getPositions(int id) async {
+  final response = await get('api/media/gallery/file/$id/file');
+  if (response.statusCode != HttpStatus.ok) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  }
+
+  return List.generate(
+    response.data.length,
+    (index) => GalleryFilePosition.fromMap(response.data[index]),
+  );
+}
+
+Future<void> updatePosition(
+  int galleryFileId,
+  int galleryId,
+  int oldPosition,
+  int newPosition,
+) async {
+  final response = await put(
+    'api/media/gallery/file/$galleryId/file/$galleryFileId/$oldPosition',
+    data: {'position': newPosition},
+  );
+  if (response.statusCode != HttpStatus.noContent) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  }
+}
+
+Future<void> removePosition(int galleryId, int galleryFileId) async {
+  final response = await delete(
+    'api/media/gallery/file/$galleryId/file/$galleryFileId',
+  );
+  if (response.statusCode != HttpStatus.noContent) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  }
+}
+
+Future<GalleryFilePosition> addPosition(
+  int galleryId,
+  int fileId,
+  int position,
+) async {
+  final response = await post('api/media/gallery/file/$galleryId/file', data: {
+    'position': position,
+    'file': fileId,
+  });
+  if (response.statusCode != HttpStatus.created) {
+    print(response.data.toString());
+    throw Exception('This should not happen');
+  }
+
+  return GalleryFilePosition.fromMap(response.data);
 }

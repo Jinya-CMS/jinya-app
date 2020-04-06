@@ -772,6 +772,14 @@ class JinyaLocalizations {
       locale: localeName,
     );
   }
+
+  String get manageGalleriesDesignerAddFile {
+    return Intl.message(
+      'Add file',
+      name: 'manageGalleriesDesignerAddFile',
+      locale: localeName,
+    );
+  }
 }
 
 class JinyaLocalizationsDelegate

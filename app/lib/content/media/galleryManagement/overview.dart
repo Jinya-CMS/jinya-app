@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jinya_app/content/media/galleryManagement/designer.dart';
 import 'package:jinya_app/content/media/galleryManagement/editGallery.dart';
 import 'package:jinya_app/content/media/galleryManagement/newGallery.dart';
 import 'package:jinya_app/localizations.dart';
@@ -98,7 +99,13 @@ class GalleriesOverviewWidgetState extends State<GalleriesOverviewWidget> {
         ButtonBar(
           children: <Widget>[
             FlatButton(
-              onPressed: () {},
+              onPressed: () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => GalleryDesignerPage(gallery),
+                  ),
+                );
+              },
               child: Text(l10n.manageGalleriesActionDesigner.toUpperCase()),
               textColor: Theme.of(context).primaryColor,
             ),
