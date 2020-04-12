@@ -11,9 +11,15 @@ import 'package:jinya_app/shared/currentUser.dart';
 import 'package:video_player/video_player.dart';
 
 class FilesOverviewWidget extends StatefulWidget {
+  FilesOverviewWidgetState _state;
+
   @override
   State<StatefulWidget> createState() {
-    return FilesOverviewWidgetState();
+    return _state = FilesOverviewWidgetState();
+  }
+
+  Future<void> executeNew() async {
+    await _state.executeNew();
   }
 }
 
@@ -24,6 +30,18 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
   final List<VideoPlayerController> _videoControllers = [];
   final List<ChewieController> _chewieControllers = [];
   JinyaLocalizations l10n;
+
+  Future<void> executeNew() async {
+    final reload = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => NewFilePage(),
+      ),
+    );
+
+    if (reload is bool && reload) {
+      loadFiles();
+    }
+  }
 
   @override
   void dispose() {
@@ -238,20 +256,6 @@ class FilesOverviewWidgetState extends State<FilesOverviewWidget> {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () async {
-          final reload = await Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewFilePage(),
-            ),
-          );
-
-          if (reload is bool && reload) {
-            await loadFiles();
-          }
-        },
       ),
     );
   }

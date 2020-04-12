@@ -25,6 +25,8 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
   var files = List<File>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final MediaTab tab;
+  final fileTab = FilesOverviewWidget();
+  final galleryTab = GalleriesOverviewWidget();
 
   MediaOverviewPageState(this.tab);
 
@@ -52,6 +54,21 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
         key: scaffoldKey,
         appBar: AppBar(
           title: Text(l10n.manageMediaTitle),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () async {
+                switch (tab) {
+                  case MediaTab.Files:
+                    await fileTab.executeNew();
+                    break;
+                  case MediaTab.Galleries:
+                    await galleryTab.executeNew();
+                    break;
+                }
+              },
+            )
+          ],
           bottom: TabBar(
             tabs: [
               Tab(
@@ -66,8 +83,8 @@ class MediaOverviewPageState extends State<MediaOverviewPage> {
         drawer: JinyaNavigationDrawer(),
         body: TabBarView(
           children: [
-            FilesOverviewWidget(),
-            GalleriesOverviewWidget(),
+            fileTab,
+            galleryTab,
           ],
         ),
       ),

@@ -86,15 +86,27 @@ class GalleryDesignerPageState extends State<GalleryDesignerPage> {
                 },
               );
 
-              final position = await addPosition(
-                _gallery.id,
-                file.id,
-                _galleryFilePositions.last.position + 1,
-              );
+              if (file != null) {
+                final lastPosition = _galleryFilePositions.length > 0
+                    ? _galleryFilePositions.last.position
+                    : 0;
 
-              setState(() {
-                _galleryFilePositions.add(position);
-              });
+                final position = await addPosition(
+                  _gallery.id,
+                  file.id,
+                  lastPosition + 1,
+                );
+
+                setState(() {
+                  _galleryFilePositions.add(position);
+                });
+              }
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.check),
+            onPressed: () async {
+              Navigator.pop(context, true);
             },
           ),
         ],
@@ -142,18 +154,17 @@ class GalleryDesignerPageState extends State<GalleryDesignerPage> {
         onReorder: (int start, int current) async {
           var startItem = _galleryFilePositions[start];
           if (start < current) {
-            int end = current - 1;
-            int i = 0;
-            int local = start;
+            var end = current - 1;
+            var i = 0;
+            var local = start;
             do {
               _galleryFilePositions[local] = _galleryFilePositions[++local];
               i++;
             } while (i < end - start);
             _galleryFilePositions[end] = startItem;
-          }
-          // dragging from bottom to top
-          else if (start > current) {
-            for (int i = start; i > current; i--) {
+          } else if (start > current) {
+            // dragging from bottom to top
+            for (var i = start; i > current; i--) {
               _galleryFilePositions[i] = _galleryFilePositions[i - 1];
             }
             _galleryFilePositions[current] = startItem;

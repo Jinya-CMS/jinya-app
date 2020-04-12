@@ -9,9 +9,15 @@ import 'package:jinya_app/network/media/galleries.dart';
 import 'package:jinya_app/network/media/galleries.dart' as network;
 
 class GalleriesOverviewWidget extends StatefulWidget {
+  GalleriesOverviewWidgetState _state;
+
   @override
   State<StatefulWidget> createState() {
-    return GalleriesOverviewWidgetState();
+    return _state = GalleriesOverviewWidgetState();
+  }
+
+  Future<void> executeNew() async {
+    await _state.executeNew();
   }
 }
 
@@ -32,6 +38,18 @@ class GalleriesOverviewWidgetState extends State<GalleriesOverviewWidget> {
     setState(() {
       galleries = galleryList;
     });
+  }
+
+  Future<void> executeNew() async {
+    final reload = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => NewGalleryPage(),
+      ),
+    );
+
+    if (reload is bool && reload) {
+      loadGalleries();
+    }
   }
 
   @override
@@ -232,20 +250,6 @@ class GalleriesOverviewWidgetState extends State<GalleriesOverviewWidget> {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () async {
-          final reload = await Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewGalleryPage(),
-            ),
-          );
-
-          if (reload is bool && reload) {
-            loadGalleries();
-          }
-        },
       ),
     );
   }
