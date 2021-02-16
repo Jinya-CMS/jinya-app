@@ -1,0 +1,13 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "test": "Test {test}!",
+  "@test": {
+    "description": "The conventional newborn programmer greeting",
+    "placeholders": {
+      "test": {}
+    }
+  }
+}
